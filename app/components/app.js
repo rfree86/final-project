@@ -28,7 +28,7 @@ var App = React.createClass({
     let session = store.getSession();
     let loggedIn = session.isAuthenticated();
     let currentUser = session.get('currentUser');
-    let username = (currentUser && currentUser.get('username')) || 'Me';
+    let username = (currentUser && currentUser.get('first_name')) || 'Me';
     return (
       <div>
         <nav className="top-bar" data-topbar role="navigation">
@@ -47,7 +47,7 @@ var App = React.createClass({
             <ul className="right">
               {loggedIn &&
                 <li className="has-dropdown">
-                  <a href="#">{username}</a>
+                  <a href="#">Welcome {username}</a>
                   <ul className="dropdown">
                     <li><a href="#" onClick={this.handleLogout}>Logout</a></li>
                   </ul>
