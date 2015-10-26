@@ -21,7 +21,7 @@ const Signup = React.createClass({
 
     let email = this.refs.email.value;
     let username = email;
-    let password = this.refs.email.value;
+    let password = this.refs.password.value;
     let first_name = this.refs.first_name.value;
     let last_name = this.refs.last_name.value;
     let organization = this.refs.organization.value;
