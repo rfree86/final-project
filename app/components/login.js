@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { History } from 'react-router';
 import store from '../store';
 
@@ -45,6 +46,7 @@ const Login = React.createClass({
         <input ref="email" placeholder="email" />
         <input type="password" ref="password" placeholder="password" />
         <button type="submit">Login</button>
+        <Link to="/signup">Sign Up</Link>
         {this.state.error && (
           <p>Bad login information</p>
         )}
