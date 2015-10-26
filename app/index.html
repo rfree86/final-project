@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title></title>
+    <title>Helping Hand</title>
 
     {% if (o.htmlWebpackPlugin.files.favicon) { %}
     <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
@@ -16,7 +16,9 @@
   </head>
   <body>
 
+  <div id="navbar"></div>
     <div id="application"></div>
+
 
     <script src="{%=o.htmlWebpackPlugin.files.chunks['app'].entry %}"></script>
   </body>
