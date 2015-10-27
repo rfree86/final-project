@@ -46,7 +46,7 @@ const Login = React.createClass({
         <input ref="email" placeholder="email" />
         <input type="password" ref="password" placeholder="password" />
         <button type="submit">Login</button>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signup"> Sign Up</Link>
         {this.state.error && (
           <p>Bad login information</p>
         )}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import store from '../store';
 import Session from '../models/session';
+import Create from './create';
 
 
 var App = React.createClass({
@@ -41,7 +42,7 @@ var App = React.createClass({
           <section className="top-bar-section">
             {/* Left Nav Section */}
             <ul className="left">
-              {/*}<li><Link to="/create">Create</Link></li> */}
+              <li><Link to="/create">Create</Link></li>
             </ul>
 
             <ul className="right">
