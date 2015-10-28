@@ -1,7 +1,7 @@
 import store from '../store';
 import _ from 'underscore';
 import User from './user';
-import Case from './case';
+import Client from './client';
 
 const Assistance = Backbone.Model.extend({
 
@@ -9,7 +9,7 @@ const Assistance = Backbone.Model.extend({
 
   default() {
     return {
-      case: {toJSON: ()=>{}},
+      client: {toJSON: ()=>{}},
       creator: {toJSON: ()=>{}}
     };
   },
@@ -17,17 +17,17 @@ const Assistance = Backbone.Model.extend({
   //get Jake to explain what this means?
   parse(response) {
     response.creator = new User(_.omit(response.creator, '__type', 'className'), {parse: true});
-    response.case = new Case(_.omit(response.case, '__type', 'className'), {parse: true});
+    response.client = new client(_.omit(response.client, '__type', 'className'), {parse: true});
   },
 
   toJSON(options) {
     //I'm saving the model
     if(options) {
       return _.extend({}, this.attributes, {
-        case: {
+        client: {
           "__type": "Pointer",
           "className": "client",
-          "objectId": this.get('case').id
+          "objectId": this.get('client').id
         },
         creator: {
           "__type": "Pointer",
@@ -38,7 +38,7 @@ const Assistance = Backbone.Model.extend({
       //I'm using toJSON to get a simple object of attributes
     } else {
       return _.extend({}, this.attributes, {
-        case: this.get('case').toJSON(),
+        client: this.get('client').toJSON(),
         creator: this.get('creator').toJSON()
       });
     }

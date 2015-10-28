@@ -2,15 +2,15 @@ import React from 'react';
 import store from '../store';
 import { Link } from 'react-router';
 
-const NewCase = React.createClass({
+const NewClient = React.createClass({
   getInitialState(){
     return {
-      theCase: store.getNewCase()
+      client: store.getNewClient()
     };
   },
   handleSubmit(e) {
     e.preventDefault();
-    var theCase = store.getCaseCollection().create({
+    var client = store.getClientCollection().create({
        first_name: this.refs.first_name.value,
        last_name: this.refs.last_name.value,
        dob: new Date(this.refs.dob.value),
@@ -21,14 +21,14 @@ const NewCase = React.createClass({
        employement: this.refs.employement.value,
 
     });
-    // theCase = new Case({first_name, last_name, dob, phone, gender, marital, education, employement});
+    // theClient = new Client({first_name, last_name, dob, phone, gender, marital, education, employement});
 
   },
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>New Case</h1>
+        <h1>New Client</h1>
         <input type="text" ref="first_name" placeholder="First Name" />
         <input type="text" ref="last_name" placeholder="Last Name" />
         <input type="date" ref="dob" placeholder="Date of Birth" />
@@ -43,4 +43,4 @@ const NewCase = React.createClass({
   }
 })
 
-export default NewCase;
+export default NewClient;

@@ -2,7 +2,7 @@ import store from '../store';
 import User from './user';
 import _ from 'underscore';
 
-var Case = Backbone.Model.extend({
+var Client = Backbone.Model.extend({
   idAttribute: 'objectId',
   urlRoot: "https://api.parse.com/1/classes/client",
 
@@ -44,4 +44,4 @@ parse(response) {
   }
 });
 
-export default Case;
+export default Client;

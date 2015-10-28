@@ -9,7 +9,8 @@ import Login from './components/login';
 import Signup from './components/signup';
 import Create from './components/create';
 import NewAssistance from './components/create-assistance';
-import ViewCases from './components/view-cases';
+import ViewClientList from './components/view-client-list';
+import ViewClient from './components/view-client';
 
 function requireAuth(nextState, replaceState) {
   if( ! store.getSession().isAuthenticated() ) {
@@ -31,7 +32,8 @@ ReactDOM.render((
       <Route path="signup" component={Signup} onEnter={requireNotAuth} />
       <Route path="create" component={Create} onEnter={requireAuth} />
       <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
-      <Route path="view" component={ViewCases} on Enter={requireAuth} />
+      <Route path="listview" component={ViewClientList} onEnter={requireAuth} />
+      <Route path="client/:id" component={ViewClient} onEnter={requireAuth} />
   </Route>
   </Router>
 ), document.getElementById('application'));
