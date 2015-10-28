@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import store from '../store';
-import Session from '../models/session';
-import Create from './create';
+
+
 
 
 var App = React.createClass({
@@ -43,7 +43,7 @@ var App = React.createClass({
             {/* Left Nav Section */}
             <ul className="left">
               <li className="has-dropdown">
-                <a href="#">Options</a>
+                <a href="#">Add Options</a>
                 <ul className="dropdown">
                 <li><Link>Create New Bulletin</Link></li>
                 <li><Link to="/create">Create New Case</Link></li>
