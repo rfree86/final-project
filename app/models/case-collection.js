@@ -2,7 +2,7 @@ import Case from './case';
 
 var CaseCollection = Backbone.Collection.extend({
   model: Case,
-  url: "https://api.parse.com/1/classes/client?include=dob",
+  url: "https://api.parse.com/1/classes/client",
   parse(response) {
     return response.results;
   }

@@ -42,6 +42,9 @@ var App = React.createClass({
           <section className="top-bar-section">
             {/* Left Nav Section */}
             <ul className="left">
+              <li className="name">
+                <h1><Link to="/view">View Cases</Link></h1>
+              </li>
               <li className="has-dropdown">
                 <a href="#">Add Options</a>
                 <ul className="dropdown">

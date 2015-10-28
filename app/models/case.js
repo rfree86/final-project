@@ -19,7 +19,7 @@ var Case = Backbone.Model.extend({
     }
   },
 //convert iso to data object that can be rendered on the page
-parse(respone) {
+parse(response) {
   response.dob=new Date(response.dob.iso)
   return response
 },
