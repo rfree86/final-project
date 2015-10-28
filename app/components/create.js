@@ -21,7 +21,6 @@ const NewCase = React.createClass({
        employement: this.refs.employement.value,
 
     });
-    console.log(theCase);
     // theCase = new Case({first_name, last_name, dob, phone, gender, marital, education, employement});
 
   },

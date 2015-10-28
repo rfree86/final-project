@@ -1,6 +1,6 @@
 import Assistance from './assistance';
 
-var AssistanceCollection = Backbone.Collections.extend({
+var AssistanceCollection = Backbone.Collection.extend({
   model: Assistance,
   url() {
     //should it be caseId or clientId?

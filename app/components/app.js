@@ -47,7 +47,7 @@ var App = React.createClass({
                 <ul className="dropdown">
                 <li><Link>Create New Bulletin</Link></li>
                 <li><Link to="/create">Create New Case</Link></li>
-                <li><Link>Add Case Event</Link></li>
+                <li><Link to="/assistance">Add Case Event</Link></li>
                 </ul>
               </li>
             </ul>

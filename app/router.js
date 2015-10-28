@@ -8,6 +8,7 @@ import Index from './components/index';
 import Login from './components/login';
 import Signup from './components/signup';
 import Create from './components/create';
+import NewAssistance from './components/create-assistance';
 
 function requireAuth(nextState, replaceState) {
   if( ! store.getSession().isAuthenticated() ) {
@@ -28,6 +29,7 @@ ReactDOM.render((
       <Route path="login" component={Login} onEnter={requireNotAuth} />
       <Route path="signup" component={Signup} onEnter={requireNotAuth} />
       <Route path="create" component={Create} onEnter={requireAuth} />
+      <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
   </Route>
   </Router>
 ), document.getElementById('application'));

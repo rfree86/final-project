@@ -1,7 +1,7 @@
 import store from '../store';
 import _ from 'underscore';
 import User from './user';
-import Case from './recipe';
+import Case from './case';
 
 const Assistance = Backbone.Model.extend({
 
