@@ -12,14 +12,15 @@ import NewAssistance from './components/create-assistance';
 import ViewClientList from './components/view-client-list';
 import ViewClient from './components/view-client';
 
+
 function requireAuth(nextState, replaceState) {
-  if( ! store.getSession().isAuthenticated() ) {
+  if( ! store.getSession().isAuthenticated) {
     replaceState({ nextPathname: nextState.location.pathname }, '/login');
   }
 }
 
 function requireNotAuth(nextState, replaceState) {
-  if(store.getSession().isAuthenticated()) {
+  if(store.getSession().isAuthenticated) {
     replaceState({}, '/');
   }
 }
@@ -30,10 +31,13 @@ ReactDOM.render((
       <IndexRoute component={Index} onEnter={requireAuth} />
       <Route path="login" component={Login} onEnter={requireNotAuth} />
       <Route path="signup" component={Signup} onEnter={requireNotAuth} />
-      <Route path="create" component={Create} onEnter={requireAuth} />
-      <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
-      <Route path="listview" component={ViewClientList} onEnter={requireAuth} />
-      <Route path="client/:id" component={ViewClient} onEnter={requireAuth} />
+        <Route path="create" component={Create} onEnter={requireAuth} />
+        <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
+      <Route path="clients" component={ViewClientList} onEnter={requireAuth} />
+      <Route path="clients/:id" component={ViewClient} onEnter={requireAuth} />
+
+
+
   </Route>
   </Router>
 ), document.getElementById('application'));

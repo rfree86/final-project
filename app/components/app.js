@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
+import BackboneMixin from '../mixins/backbone';
 import store from '../store';
 
 
@@ -10,26 +11,24 @@ var App = React.createClass({
     children: React.PropTypes.node
   },
 
-    componentWillMount() {
-    store.getSession().on('change', this.forceUpdate.bind(this, null), this);
-  },
+  mixins: [BackboneMixin],
 
-  componentWillUnmount() {
-    store.getSession().off('change', null, this);
+  getModels() {
+    return{ session: store.getSession()
+    }
   },
 
     handleLogout(e) {
       e.preventDefault();
-      var session = store.getSession();
-      session.invalidate();
+    store.invalidateSession();
     },
 
 
   render() {
-    let session = store.getSession();
-    let loggedIn = session.isAuthenticated();
-    let currentUser = session.get('currentUser');
-    let username = (currentUser && currentUser.get('first_name')) || 'Me';
+    let session = this.state.session;
+    let loggedIn = session.isAuthenticated;
+    let currentUser = session.currentUser;
+    let username = (currentUser && currentUser.email) || 'Me';
     return (
       <div>
         <nav className="top-bar" data-topbar role="navigation">
@@ -43,7 +42,7 @@ var App = React.createClass({
             {/* Left Nav Section */}
             <ul className="left">
               <li className="name">
-                <h1><Link to="/listview">View Clients</Link></h1>
+                <h1><Link to="/clients">View Clients</Link></h1>
               </li>
               <li className="has-dropdown">
                 <a href="#">Add Options</a>
@@ -58,7 +57,7 @@ var App = React.createClass({
             <ul className="right">
               {loggedIn &&
                 <li className="has-dropdown">
-                  <a href="#">Welcome {username}</a>
+                  <a href="#">{username}</a>
                   <ul className="dropdown">
                     <li><a href="#" onClick={this.handleLogout}>Logout</a></li>
                   </ul>

@@ -17,7 +17,7 @@ const Assistance = Backbone.Model.extend({
   //get Jake to explain what this means?
   parse(response) {
     response.creator = new User(_.omit(response.creator, '__type', 'className'), {parse: true});
-    response.client = new client(_.omit(response.client, '__type', 'className'), {parse: true});
+    response.client = new Client(_.omit(response.client, '__type', 'className'), {parse: true});
   },
 
   toJSON(options) {

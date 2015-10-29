@@ -35,13 +35,14 @@ parse(response) {
 
         }
       });
-    // I'm using toJSON to get a simple object of attributes
+    // I'm using toJSON to use with React
     } else {
       return _.extend({}, this.attributes, {
         dob: this.get('dob').toJSON()
       });
     }
-  }
+  },
+
 });
 
 export default Client;

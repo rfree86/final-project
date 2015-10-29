@@ -51,8 +51,11 @@ const Session = Backbone.Model.extend({
       window.location.reload();
     },
 
-    isAuthenticated() {
-      return !!this.get('currentUser');
+    toJSON() {
+      return {
+        currentUser: this.get('currentUser') && this.get ('currentUser').toJSON(),
+        isAuthenticated: !!this.get('currentUser')
+      };
     }
 });
 export default Session;

@@ -5,12 +5,12 @@ import { Link } from 'react-router';
 const NewClient = React.createClass({
   getInitialState(){
     return {
-      client: store.getNewClient()
+      client: {}
     };
   },
   handleSubmit(e) {
     e.preventDefault();
-    var client = store.getClientCollection().create({
+    var client = store.createClient({
        first_name: this.refs.first_name.value,
        last_name: this.refs.last_name.value,
        dob: new Date(this.refs.dob.value),
@@ -21,6 +21,7 @@ const NewClient = React.createClass({
        employement: this.refs.employement.value,
 
     });
+
     // theClient = new Client({first_name, last_name, dob, phone, gender, marital, education, employement});
 
   },
@@ -33,10 +34,40 @@ const NewClient = React.createClass({
         <input type="text" ref="last_name" placeholder="Last Name" />
         <input type="date" ref="dob" placeholder="Date of Birth" />
         <input type="text" ref="phone" placeholder="Phone Number" />
-        <input type="text" ref="gender" placeholder="Gender" />
-        <input type="text" ref="marital" placeholder="Marital Status" />
-        <input type="text" ref="education" placeholder="Education" />
-        <input type="text" ref="employement" placeholder="Employement" />
+
+        <label>Gender</label>
+        <select name="select" ref="gender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+
+        <label>Marital Status</label>
+        <select name="select" ref="marital">
+          <option>Single</option>
+          <option>Married</option>
+          <option>Divorced</option>
+          <option>Seperated</option>
+          <option>Widow</option>
+        </select>
+
+        <label>Education</label>
+        <select name="select" ref="education">
+          <option>High School</option>
+          <option>Associates</option>
+          <option>Tech School</option>
+          <option>Bachelors</option>
+          <option>Masters</option>
+          <option>Doctorate</option>
+        </select>
+
+        <label>Employement</label>
+        <select name="select" ref="employement">
+          <option>Student</option>
+          <option>Unemployed</option>
+          <option>Part-Time</option>
+          <option>Full-Time</option>
+        </select>
+
         <button type="submit">Submit</button>
       </form>
     )

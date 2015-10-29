@@ -10,7 +10,7 @@ const NewAssistance = React.createClass({
       <input type="text" ref="" placeholder="" />
       <input type="date" ref="" placeholder="date" />
       <input type="text" ref="" placeholder="location" />
-      <textarea cols="30" rows="10" ref="" placeholder="describe event here" />
+      <textarea cols="30" rows="10" ref="content" placeholder="describe event here" />
       <button type="submit">Submit</button>
     </form>
   )

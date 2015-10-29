@@ -1,7 +1,7 @@
 import React from 'react';
 import { History } from 'react-router';
 import store from '../store';
-import User from '../models/user';
+
 
 const Signup = React.createClass({
   propTypes: {
@@ -27,18 +27,14 @@ const Signup = React.createClass({
     let organization = this.refs.organization.value;
     let phone = this.refs.phone.value;
 
-    let user = new User({username, password, email, first_name, last_name, organization,
-    phone});
+  store.createUser({username, email, password, first_name, last_name, organization, phone}).then(()=> {
+    let { location } = this.props;
+    if (location.state && location.state.nextPathname) {
+      this.history.replaceState(null, location.state.nextPathname);
+    } else {
+      this.history.replaceState(null, '/');
+    }
 
-    user.save().then(() => {
-      return store.getSession().authenticate({sessionToken: user.get('sessionToken')}).then(() => {
-        let { location } = this.props;
-        if (location.state && location.state.nextPathname) {
-          this.history.replaceState(null, location.state.nextPathname);
-        } else {
-          this.history.replaceState(null, '/');
-        }
-      });
     }, (xhr) => {
       this.setState({ error: xhr.responseJSON.error });
     });

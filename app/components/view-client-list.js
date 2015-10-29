@@ -2,39 +2,35 @@ import React from 'react';
 import store from '../store';
 import Client from '../models/client';
 import { Link } from 'react-router';
+import BackboneMixin from '../mixins/backbone';
 
 
 const ViewClientList = React.createClass({
-  propTypes: {
-    client: React.PropTypes.object
+  mixins: [BackboneMixin],
+
+
+  componentWillMount() {
+    store.fetchClients();
   },
 
-  getDefaultProps() {
+  getModels() {
     return {
-      client: store.getClientCollection()
+      clients: store.getClients()
     }
   },
 
-  componentWillMount() {
-    this.props.client.fetch();
-    this.props.client.on('sync add remove', null, this);
-  },
-
-  componentWiilUnMount() {
-    this.props.client.off('sync add remove', null, this);
-  },
-
   render() {
-    var client = this.props.client.toJSON();
+    var clients = this.state.clients;
 
     return (
       <div>
+        <h1>Clients</h1>
         <ul>
-          {client.map((c) =>
-          <li key={c.objectId}>
-            <Link to={`client/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
-          </li>
-        )}
+          {clients.map((c, i) => {
+          return (<li key={c.objectId || i}>
+            <Link to={`/clients/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
+          </li>);
+        })}
         </ul>
       </div>
     )
