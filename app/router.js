@@ -11,6 +11,7 @@ import Create from './components/create';
 import NewAssistance from './components/create-assistance';
 import ViewClientList from './components/view-client-list';
 import ViewClient from './components/view-client';
+import NewBulletin from './components/bulletin-form';
 
 
 function requireAuth(nextState, replaceState) {
@@ -31,6 +32,7 @@ ReactDOM.render((
       <IndexRoute component={Index} onEnter={requireAuth} />
       <Route path="login" component={Login} onEnter={requireNotAuth} />
       <Route path="signup" component={Signup} onEnter={requireNotAuth} />
+      <Route path="bulletin" components={NewBulletin} onEnter={requireAuth} />
         <Route path="create" component={Create} onEnter={requireAuth} />
         <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
       <Route path="clients" component={ViewClientList} onEnter={requireAuth} />

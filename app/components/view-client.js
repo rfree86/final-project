@@ -54,6 +54,7 @@ const ViewClient = React.createClass({
         <h6>Education: {client.education}</h6>
         <h6>Employment: {client.employement}</h6>
           <ul>
+            <h6>Assistance</h6>
             {assistance.map((a, i)=> <li key={a.objectId}>{a.content}</li>
         )}
           </ul>

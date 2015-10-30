@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
 import store from '../store';
+import { History } from 'react-router';
 
 
 
@@ -11,7 +12,7 @@ var App = React.createClass({
     children: React.PropTypes.node
   },
 
-  mixins: [BackboneMixin],
+  mixins: [History, BackboneMixin],
 
   getModels() {
     return{ session: store.getSession()
@@ -47,7 +48,7 @@ var App = React.createClass({
               <li className="has-dropdown">
                 <a href="#">Add Options</a>
                 <ul className="dropdown">
-                <li><Link>Create New Bulletin</Link></li>
+                <li><Link to="/bulletin">Create New Bulletin</Link></li>
                 <li><Link to="/create">Create New Client</Link></li>
                 <li><Link to="/assistance">Add Client Event</Link></li>
                 </ul>

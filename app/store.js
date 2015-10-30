@@ -6,22 +6,38 @@ import ClientCollection from './models/client-collection';
 import Assistance from './models/assistance';
 import AssistanceCollection from './models/assistance-collection';
 import User from './models/user';
+import Bulletin from './models/bulletin';
+import BulletinCollection from './models/bulletin-collection';
 
 let session = new Session();
 let clients = new ClientCollection();
 let assistanceCache = {};
+let bulletins = new BulletinCollection();
 
 
 const Store = _.extend({}, Backbone.Events, {
 
   initialize() {
     this.listenTo(clients, 'add change remove',
-  this.trigger.bind(this, 'change'));
+    this.trigger.bind(this, 'change'));
     this.listenTo(session, 'change', this.trigger.bind(this, 'change'));
   },
 
+  getBulletins() {
+    return bulletins.toJSON();
+  },
+
+  fetchBulletins() {
+    return bulletins.fetch();
+  },
+
+  createBulletins(data) {
+    bulletins.create(data)
+  },
+
   createClient(attributes) {
-    let client = new Client(attributes);
+
+    return clients.create(attributes);
 },
   getClients() {
     return clients.toJSON();

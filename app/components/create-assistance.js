@@ -1,8 +1,10 @@
 import React from 'react';
 import store from '../store';
 import { Link } from 'react-router';
+import { History } from 'react-router';
 
 const NewAssistance = React.createClass({
+  mixins: [ History ],
   render () {
     return (
     <form>

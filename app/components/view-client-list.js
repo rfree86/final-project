@@ -3,10 +3,11 @@ import store from '../store';
 import Client from '../models/client';
 import { Link } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
+import { History } from 'react-router';
 
 
 const ViewClientList = React.createClass({
-  mixins: [BackboneMixin],
+  mixins: [History, BackboneMixin],
 
 
   componentWillMount() {

@@ -20,7 +20,7 @@ var Client = Backbone.Model.extend({
   },
 //convert iso to data object that can be rendered on the page
 parse(response) {
-  response.dob=new Date(response.dob.iso)
+  response.dob = (response.dob && new Date(response.dob.iso));
   return response
 },
 

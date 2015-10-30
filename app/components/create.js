@@ -1,8 +1,11 @@
 import React from 'react';
 import store from '../store';
 import { Link } from 'react-router';
+import { History } from 'react-router';
 
 const NewClient = React.createClass({
+  mixins: [ History ],
+  
   getInitialState(){
     return {
       client: {}
