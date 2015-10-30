@@ -15,6 +15,10 @@ const ViewClient = React.createClass({
     };
   },
 
+  componentWillMount() {
+    store.fetchAssistanceForClient(this.props.params.id);
+  },
+
   getModels() {
     return {
       client: store.getClient(this.props.params.id),
@@ -26,6 +30,13 @@ const ViewClient = React.createClass({
     this.setState({
       isEditing: !this.state.isEditing
     });
+  },
+
+  handleAssistance(e) {
+    e.preventDefault();
+    store.assistanceOnClient(this.props.params.id,
+    this.refs.assistance.value);
+      this.refs.assistance.value = '';
   },
 
   render() {
@@ -43,9 +54,8 @@ const ViewClient = React.createClass({
         <h6>Education: {client.education}</h6>
         <h6>Employment: {client.employement}</h6>
           <ul>
-            {assistance.map((a, i)=>{
-              return (<li>{a.content}</li>);
-            })}
+            {assistance.map((a, i)=> <li key={a.objectId}>{a.content}</li>
+        )}
           </ul>
 
       </div>

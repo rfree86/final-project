@@ -9,11 +9,11 @@ import User from './models/user';
 
 let session = new Session();
 let clients = new ClientCollection();
-let assistance = new AssistanceCollection();
+let assistanceCache = {};
 
 
+const Store = _.extend({}, Backbone.Events, {
 
-const Store= _.extend({}, Backbone.Events, {
   initialize() {
     this.listenTo(clients, 'add change remove',
   this.trigger.bind(this, 'change'));
@@ -30,7 +30,7 @@ const Store= _.extend({}, Backbone.Events, {
   fetchClients() {
     return clients.fetch();
   },
-
+//do something if id doesn't exist
   getClient(id) {
     let client = clients.get(id);
     if(client) {
@@ -43,12 +43,6 @@ const Store= _.extend({}, Backbone.Events, {
 
   saveClient(client, options) {
     return clients.create(client, options);
-  },
-
-  getAssistanceForClient(id){
-    assistance.setClient(id);
-    assistance.fetch();
-    return assistance.toJSON();
   },
 
   invalidateSession() {
@@ -67,13 +61,43 @@ const Store= _.extend({}, Backbone.Events, {
     return session.restore();
   },
 
+//this user should become the currentUser, instead of
   createUser(attributes) {
     let user = new User(attributes);
     return user.save().then(()=> {
       return sessioin.authenticate({sessionToken:
 user.get('sessionToken')});
     });
+  },
+
+  getAssistanceForClient(id) {
+    let assistances = (assistanceCache[id] = assistanceCache[id] || new
+    AssistanceCollection(null, {clientId: id}));
+    this.stopListening(assistances);
+    this.listenTo(assistances, 'add remove change', this.trigger.bind(this, 'change'));
+    return assistances.toJSON();
+  },
+
+  fetchAssistanceForClient(id) {
+    let assistances = (assistanceCache[id] = assistanceCache[id] || new
+    AssistanceCollection(null, {clientId: id}));
+    this.stopListening(assistances);
+    this.listenTo(assistances, 'add remove change', this.trigger.bind(this, 'change'));
+    return assistances.fetch();
+  },
+
+  assistanceOnClient(id, assistance) {
+    let assistances = (assistanceCache[id] = assistancCache[id] || new
+    AssistanceCollection(null, {recipeId: id}));
+      this.stopListening(assistances);
+      this.listenTo(assistances, 'add remove change',
+    this.trigger.bind(this, 'change'));
+      assistances.create({
+        client: new Client({objectId: id}),
+        content: assistance
+      });
   }
+
 });
 
 Store.initialize();

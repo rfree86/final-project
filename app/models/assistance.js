@@ -7,7 +7,7 @@ const Assistance = Backbone.Model.extend({
 
   idAttribute: 'objectId',
 
-  default() {
+  defaults() {
     return {
       client: {toJSON: ()=>{}},
       creator: {toJSON: ()=>{}}
@@ -41,6 +41,18 @@ const Assistance = Backbone.Model.extend({
         client: this.get('client').toJSON(),
         creator: this.get('creator').toJSON()
       });
+    }
+  },
+
+  save() {
+    let currentUser = store.getSession().currentUser;
+    if(currentUser) {
+      if(this.isNew()) {
+        this.set('creator', new User(currentUser));
+      }
+      Backbone.Model.proptype.save.apply(this, arguments);
+    } else {
+      return new Promise((_, reject) =>("Invalid session"));
     }
   }
 });

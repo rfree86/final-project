@@ -13,9 +13,9 @@ var AssistanceCollection = Backbone.Collection.extend({
     });
   },
 
- setClient(id) {
-   this.clientId = id;
- },
+initialize(models, options) {
+  this.clientId = options && options.clientId;
+},
 
   parse(response) {
     return response.results;
