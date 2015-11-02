@@ -25,11 +25,12 @@ const ViewClientList = React.createClass({
 
     return (
       <div>
-        <h1>Clients</h1>
+        <h1 className="clients">Clients</h1>
         <ul>
           {clients.map((c, i) => {
-          return (<li key={c.objectId || i}>
-            <Link to={`/clients/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
+          return (<li className="clientListView" key={c.objectId || i}>
+            <Link  to={`/clients/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
+            <hr />
           </li>);
         })}
         </ul>

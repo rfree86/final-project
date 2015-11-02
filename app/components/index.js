@@ -28,12 +28,17 @@ var Index = React.createClass({
       let username = (currentUser && currentUser.first_name)
     return (
       <div>
-      <h1>Welcome {username}</h1>
-      <h4 className="bullitenBoard">Bulletin Board</h4>
+      <h6 className="welcome">Welcome {username}</h6>
+      <h1 className="bulletinBoard">Bulletin Board</h1>
         <ul>
           {bulletins.map((b)=>{
             return(
-            <li key={b.objectId}>{b.message}{b.creator.email}</li>
+            <li className="bulletinLines" key={b.objectId}>{b.title}<hr className="bulletinHR" />
+            <p>{b.message}</p>
+            <span className="bulletinSpan"><i>Contact</i>: {b.contact_person}<br />
+            <i>Best number to reach</i>: {b.contact_phone}<br />
+            <i>Best email</i>: {b.contact_email}</span>
+            </li>
           )}
         )}
         </ul>

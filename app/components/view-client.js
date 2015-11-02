@@ -46,6 +46,7 @@ const ViewClient = React.createClass({
 
     return (
       <div>
+        <ul>
         <h4>Name: {client.first_name} {client.middle_initial} {client.last_name}</h4>
         <h6>Date of Birth: {client.dob}</h6>
         <h6>Best Phone Number: {client.phone}</h6>
@@ -53,8 +54,15 @@ const ViewClient = React.createClass({
         <h6>Marital Status: {client.marital}</h6>
         <h6>Education: {client.education}</h6>
         <h6>Employment: {client.employement}</h6>
-          <ul>
-            <h6>Assistance</h6>
+        </ul>
+        <dl className="sub-nav">
+          <dt>Assistance</dt>
+            <dd className="active"><Link to={"/clients/" + this.props.params.id}>All</Link></dd>
+            <dd><Link to={"/clients/" + this.props.params.id + "/assistance"}><i className="fa fa-plus-square"></i></Link>Add Assistance</dd>
+        </dl>
+        {this.props.children}
+        <ul>
+
             {assistance.map((a, i)=> <li key={a.objectId}>{a.content}</li>
         )}
           </ul>

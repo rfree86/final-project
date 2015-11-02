@@ -5,7 +5,7 @@ import { History } from 'react-router';
 
 const NewClient = React.createClass({
   mixins: [ History ],
-  
+
   getInitialState(){
     return {
       client: {}
@@ -31,13 +31,18 @@ const NewClient = React.createClass({
 
   render() {
     return (
+      <div className="row">
+        <div className="small-10 columns">
       <form onSubmit={this.handleSubmit}>
-        <h1>New Client</h1>
-        <input type="text" ref="first_name" placeholder="First Name" />
-        <input type="text" ref="last_name" placeholder="Last Name" />
-        <input type="date" ref="dob" placeholder="Date of Birth" />
-        <input type="text" ref="phone" placeholder="Phone Number" />
+        <fieldset>
+        <legend>New Client</legend>
+        <input className="clientInput" type="text" ref="first_name" placeholder="First Name" />
+        <input className="clientInput" type="text" ref="last_name" placeholder="Last Name" />
+        <input className="clientInput" type="date" ref="dob" placeholder="Date of Birth" />
+        <input className="clientInput" type="text" ref="phone" placeholder="Phone Number" />
 
+          <div className="row">
+            <div className="small-5 columns">
         <label>Gender</label>
         <select name="select" ref="gender">
           <option>Male</option>
@@ -52,7 +57,9 @@ const NewClient = React.createClass({
           <option>Seperated</option>
           <option>Widow</option>
         </select>
+        </div>
 
+        <div className="small-5 columns">
         <label>Education</label>
         <select name="select" ref="education">
           <option>High School</option>
@@ -70,9 +77,15 @@ const NewClient = React.createClass({
           <option>Part-Time</option>
           <option>Full-Time</option>
         </select>
+      </div>
+
+          </div>
 
         <button type="submit">Submit</button>
+        </fieldset>
       </form>
+      </div>
+    </div>
     )
   }
 })

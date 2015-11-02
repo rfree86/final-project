@@ -43,15 +43,15 @@ var App = React.createClass({
             {/* Left Nav Section */}
             <ul className="left">
               <li className="name">
-                <h1><Link to="/clients">View Clients</Link></h1>
+                <Link to="/clients">View Clients</Link>
               </li>
+
               <li className="has-dropdown">
                 <a href="#">Add Options</a>
-                <ul className="dropdown">
-                <li><Link to="/bulletin">Create New Bulletin</Link></li>
-                <li><Link to="/create">Create New Client</Link></li>
-                <li><Link to="/assistance">Add Client Event</Link></li>
-                </ul>
+                  <ul className="dropdown">
+                    <li><Link to="/bulletin">Create New Bulletin</Link></li>
+                    <li><Link to="/create">Create New Client</Link></li>
+                  </ul>
               </li>
             </ul>
 

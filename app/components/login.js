@@ -26,7 +26,7 @@ const Login = React.createClass({
     store.authenticateSession({username, password}).then((loggedIn) =>{
       if (!loggedIn)
       return this.setState({ error: true})
-    
+
 
 
       var { location } = this.props
@@ -41,16 +41,22 @@ const Login = React.createClass({
 
   render() {
     return (
+    <div className="row">
+     <div className="small-10 columns">
       <form onSubmit={this.handleSubmit}>
-        <h1>Login</h1>
-        <input ref="email" placeholder="email" />
+        <fieldset>
+        <legend>Login</legend>
+        <input className="login-input" ref="email" placeholder="email" />
         <input type="password" ref="password" placeholder="password" />
         <button type="submit">Login</button>
         <Link to="/signup"> Sign Up</Link>
         {this.state.error && (
           <p>Bad login information</p>
         )}
+        </fieldset>
       </form>
+     </div>
+    </div>
     )
   }
 })

@@ -42,8 +42,11 @@ const Signup = React.createClass({
 
   render() {
     return (
+    <div className="row">
+      <div className="small-10 columns">
       <form onSubmit={this.handleSubmit}>
-        <h1>Sign Up</h1>
+        <fieldset>
+        <legend>Sign Up</legend>
         <input type="text" ref="email" placeholder="email" />
         <input type="text" ref="password" placeholder="password" />
         <input type="text" ref="organization" placeholder="organization" />
@@ -54,7 +57,10 @@ const Signup = React.createClass({
         {this.state.error && (
           <p>{this.state.error}</p>
         )}
+        </fieldset>
       </form>
+      </div>
+    </div>
     )
   }
 })

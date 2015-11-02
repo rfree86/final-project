@@ -3,3 +3,86 @@
 @import '~normalize.css/normalize.css';
 @import '~font-awesome/scss/font-awesome.scss';
 @import 'foundation';
+
+body
+ {
+  background-color: #F3F3F3;
+}
+
+.top-bar,
+ {
+  background-color: #666666;
+}
+
+
+//
+//index page-bulletinBoard display
+//
+.welcome
+ {
+  margin-left: 10px;
+ }
+
+.bulletinBoard
+ {
+  text-align: center;
+}
+
+.bulletinLines
+ {
+  background-color: #F4EDDB;
+  list-style: none;
+  margin-bottom: 15px;
+
+ }
+
+.bulletinHR{
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.bulletinSpan
+ {
+  font-size: 10px;
+}
+
+//
+//view-client-list display
+//
+.clients
+ {
+  text-align: center;
+}
+.clientListView
+ {
+  list-style: none;
+ }
+
+ .clientInput {
+   background-color: blue;
+ }
+
+ //New Client page and input box styling
+ ///
+.newClient
+ {
+  text-align: center;
+  }
+
+//client view page and assistance components
+
+.assistance
+ {
+  background-color: #F4EDDB;
+  padding-left: 20px;
+  padding-top: 15px;
+  position: relative;
+  height: 50px;
+
+ }
+
+.add_asst
+ {
+   float: right;
+   margin-right: 50%;
+ }
