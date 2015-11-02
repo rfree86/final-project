@@ -7,6 +7,10 @@ import NewClient from './create';
 
 
 const ViewClient = React.createClass({
+  propTypes: {
+    children: React.PropTypes.node
+  },
+
   mixins: [History, BackboneMixin],
 
   getInitialState() {
@@ -46,24 +50,46 @@ const ViewClient = React.createClass({
 
     return (
       <div>
-        <ul>
-        <h4>Name: {client.first_name} {client.middle_initial} {client.last_name}</h4>
-        <h6>Date of Birth: {client.dob}</h6>
-        <h6>Best Phone Number: {client.phone}</h6>
-        <h6>Gender: {client.gender}</h6>
-        <h6>Marital Status: {client.marital}</h6>
-        <h6>Education: {client.education}</h6>
-        <h6>Employment: {client.employement}</h6>
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Information for {client.first_name} {client.middle_initial} {client.last_name}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+        <td>Date of Birth: {client.dob}</td>
+        <td>Best Phone Number: {client.phone}</td>
+        <td>Gender: {client.gender}</td>
+          </tr>
+
+          <tr>
+        <td>Marital Status: {client.marital}</td>
+        <td>Education: {client.education}</td>
+        <td>Employment: {client.employement}</td>
+         </tr>
+        </tbody>
+      </table>
+
         <dl className="sub-nav">
           <dt>Assistance</dt>
             <dd className="active"><Link to={"/clients/" + this.props.params.id}>All</Link></dd>
             <dd><Link to={"/clients/" + this.props.params.id + "/assistance"}><i className="fa fa-plus-square"></i></Link>Add Assistance</dd>
         </dl>
-        {this.props.children}
-        <ul>
 
-            {assistance.map((a, i)=> <li key={a.objectId}>{a.content}</li>
+        {this.props.children}
+        <ul className="accordion" data-accordion>
+
+            {assistance.map((a, i)=>
+              <li key={a.objectId} className="accordion-navigation">{a.name}
+                <div className="content active">
+                  <p>{a.content}</p>
+                  {a.location}<br />
+                  {a.event_date}
+                </div>
+
+                </li>
         )}
           </ul>
 

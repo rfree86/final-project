@@ -103,14 +103,17 @@ user.get('sessionToken')});
   },
 
   assistanceOnClient(id, assistance) {
-    let assistances = (assistanceCache[id] = assistancCache[id] || new
-    AssistanceCollection(null, {recipeId: id}));
+    let assistances = (assistanceCache[id] = assistanceCache[id] || new
+    AssistanceCollection(null, {clientId: id}));
       this.stopListening(assistances);
       this.listenTo(assistances, 'add remove change',
     this.trigger.bind(this, 'change'));
       assistances.create({
         client: new Client({objectId: id}),
-        content: assistance
+        content: assistance.content,
+        location: assistance.location,
+        name: assistance.name,
+        event_date: assistance.event_date,
       });
   }
 

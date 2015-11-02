@@ -51,7 +51,7 @@ const Assistance = Backbone.Model.extend({
       if(this.isNew()) {
         this.set('creator', new User(currentUser));
       }
-      Backbone.Model.proptype.save.apply(this, arguments);
+      Backbone.Model.prototype.save.apply(this, arguments);
     } else {
       return new Promise((_, reject) =>("Invalid session"));
     }
