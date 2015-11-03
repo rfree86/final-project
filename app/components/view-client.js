@@ -7,6 +7,9 @@ import { History } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
 import NewClient from './create';
 
+
+//this component is for the toggle class functionality of the assistnace list
+//this component was taken from a codepen session done with my instructor
 var Section = React.createClass({
 
   getInitialState: function(){
@@ -36,9 +39,7 @@ var Section = React.createClass({
     return (
       <div className={this.state.class}>
 
-        <div className="sectionhead">{this.props.title}
-          <button className="button tiny info" onClick={this.handleClick}>read more</button>
-
+        <div className="sectionhead">{this.props.title} <i className="fa fa-caret-down" onClick={this.handleClick}></i>
           </div>
         <div className="articlewrap">
           <div className="article">
@@ -89,7 +90,7 @@ const ViewClient = React.createClass({
       this.refs.assistance.value = '';
   },
 
-
+//I am bringing in the Secion component here as a wrapper for the assistance list and inculded css styling 
   render() {
 
     let client = this.state.client;
@@ -133,7 +134,7 @@ const ViewClient = React.createClass({
           <p>{a.content}</p>
           {a.location}<br />
           {a.event_date}
-          <hr />
+
           </Section>)}
         </div>
 

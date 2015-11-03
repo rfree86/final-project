@@ -35,6 +35,11 @@ const Store = _.extend({}, Backbone.Events, {
     bulletins.create(data)
   },
 
+  searchClients(search) {
+    clients.setSearch(search);
+    clients.fetch();
+  },
+
   createClient(attributes) {
 
     return clients.create(attributes);

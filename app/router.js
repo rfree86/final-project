@@ -31,12 +31,19 @@ ReactDOM.render((
     <Route path="/" component={App}>
       <IndexRoute component={Index} onEnter={requireAuth} />
       <Route path="login" component={Login} onEnter={requireNotAuth} />
+
       <Route path="signup" component={Signup} onEnter={requireNotAuth} />
+
       <Route path="bulletin" components={NewBulletin} onEnter={requireAuth} />
-        <Route path="create" component={Create} onEnter={requireAuth} />
+
+      <Route path="create" component={Create} onEnter={requireAuth} />
+
       <Route path="clients" component={ViewClientList} onEnter={requireAuth} />
+
       <Route path="clients/:id" component={ViewClient} onEnter={requireAuth}>
-        <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
+
+      <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
+
       </Route>
 
 
