@@ -8,11 +8,13 @@ import AssistanceCollection from './models/assistance-collection';
 import User from './models/user';
 import Bulletin from './models/bulletin';
 import BulletinCollection from './models/bulletin-collection';
+import PeopleCollection from './models/people-collection';
 
 let session = new Session();
 let clients = new ClientCollection();
 let assistanceCache = {};
 let bulletins = new BulletinCollection();
+let people = new PeopleCollection();
 
 
 const Store = _.extend({}, Backbone.Events, {
@@ -21,6 +23,7 @@ const Store = _.extend({}, Backbone.Events, {
     this.listenTo(clients, 'add change remove',
     this.trigger.bind(this, 'change'));
     this.listenTo(session, 'change', this.trigger.bind(this, 'change'));
+    this.listenTo(bulletins, 'add change remove', this.trigger.bind(this, 'change'));
   },
 
   getBulletins() {
@@ -35,13 +38,17 @@ const Store = _.extend({}, Backbone.Events, {
     bulletins.create(data)
   },
 
-  searchClients(search) {
-    clients.setSearch(search);
-    clients.fetch();
+  getPeopleCollection(model, search) {
+    return( new PeopleCollection(model, {search: search}))
   },
 
-  getClientCollection(model, search) {
-    return(new ClientCollection(model, {search: search}))
+  searchPeople(search) {
+    people.setSearch(search);
+    people.fetch();
+  },
+
+  getPeople() {
+    return people.toJSON();
   },
 
   createClient(attributes) {

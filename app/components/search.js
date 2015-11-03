@@ -6,30 +6,18 @@ import { History } from 'react-router';
 
 const Search = React.createClass({
 
-  getInitialState() {
-    return{
-      client: store.getClientCollection()
+  mixins: [History, BackboneMixin],
+
+  getModels() {
+    return {
+      people: store.getPeople()
     }
-  },
-
-  componentWillMount() {
-    this.state.client.on('change', this.forceUpdate.bind(this, null), this);
-  },
-
-  componentWillUnMount() {
-    this.state.client.off('change', null, this);
   },
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState.client = store.getClientCollection([], this.refs.search.value);
-      this.state.client.fetch().then(
-        ()=> {
-          this.setState({
-            client: this.state.client
-          })
-        }
-      )
+    let search = this.refs.search.value;
+    store.searchPeople(search);
   },
 
   render() {
@@ -37,18 +25,19 @@ const Search = React.createClass({
       <div>
         <h1>Search Clients</h1>
           <form onSubmit={this.handleSubmit}>
-            <input type="search" ref="search" placeholder="search" />
+            <input type="search" ref="search" placeholder="search name" />
             <button type="submit">Submit</button>
           </form>
 
-        <ul>
-          {this.state.client.toJSON().map((c) =>{
-            return (<li className="search-results" key={c.objectId}>
-            <Link  to={`/clients/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
-            <hr />
-          </li>);
-        })}
-        </ul>
+          <ul>
+            {this.state.people.map((c) =>{
+              return (<li className="search-results" key={c.objectId}>
+              <Link  to={`/clients/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
+              <hr />
+            </li>);
+          })}
+          </ul>
+
 
       </div>
     )
