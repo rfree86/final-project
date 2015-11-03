@@ -12,6 +12,7 @@ import NewAssistance from './components/create-assistance';
 import ViewClientList from './components/view-client-list';
 import ViewClient from './components/view-client';
 import NewBulletin from './components/bulletin-form';
+import Search from './components/search';
 
 
 function requireAuth(nextState, replaceState) {
@@ -37,6 +38,8 @@ ReactDOM.render((
       <Route path="bulletin" components={NewBulletin} onEnter={requireAuth} />
 
       <Route path="create" component={Create} onEnter={requireAuth} />
+
+      <Route path="search" component={Search} onEnter={requireAuth} />
 
       <Route path="clients" component={ViewClientList} onEnter={requireAuth} />
 

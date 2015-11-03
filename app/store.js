@@ -40,6 +40,10 @@ const Store = _.extend({}, Backbone.Events, {
     clients.fetch();
   },
 
+  getClientCollection(model, search) {
+    return(new ClientCollection(model, {search: search}))
+  },
+
   createClient(attributes) {
 
     return clients.create(attributes);

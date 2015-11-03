@@ -1,6 +1,7 @@
 import React from 'react';
 import store from '../store';
-import Client from '../models/client';
+import Search from './search';
+import Backbone from 'backbone';
 import { Link } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
 import { History } from 'react-router';

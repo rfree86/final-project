@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import store from '../store';
 import { Link } from 'react-router';
 import { History } from 'react-router';
@@ -90,7 +89,7 @@ const ViewClient = React.createClass({
       this.refs.assistance.value = '';
   },
 
-//I am bringing in the Secion component here as a wrapper for the assistance list and inculded css styling 
+//I am bringing in the Secion component here as a wrapper for the assistance list and inculded css styling
   render() {
 
     let client = this.state.client;
