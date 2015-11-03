@@ -1,10 +1,56 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import store from '../store';
 import { Link } from 'react-router';
 import { History } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
 import NewClient from './create';
 
+var Section = React.createClass({
+
+  getInitialState: function(){
+     return {
+       open: false,
+       class: "section"
+     }
+  },
+
+  handleClick: function(){
+    console.log(this.state.class);
+    if(this.state.open) {
+      this.setState({
+        open: false,
+        class: "section"
+      });
+    }else{
+      this.setState({
+        open: true,
+        class: "section open"
+      });
+    }
+  },
+
+  render: function() {
+    var assistance = this.state.assistance;
+    return (
+      <div className={this.state.class}>
+
+        <div className="sectionhead">{this.props.title}
+          <button className="button tiny info" onClick={this.handleClick}>read more</button>
+
+          </div>
+        <div className="articlewrap">
+          <div className="article">
+
+            {this.props.children}
+
+          </div>
+        </div>
+      </div>
+    );
+  }
+});
 
 const ViewClient = React.createClass({
   propTypes: {
@@ -15,7 +61,7 @@ const ViewClient = React.createClass({
 
   getInitialState() {
     return {
-      isEditing: false
+      isEditing: false,
     };
   },
 
@@ -42,6 +88,7 @@ const ViewClient = React.createClass({
     this.refs.assistance.value);
       this.refs.assistance.value = '';
   },
+
 
   render() {
 
@@ -79,24 +126,22 @@ const ViewClient = React.createClass({
         </dl>
 
         {this.props.children}
-        <ul className="accordion" data-accordion>
 
-            {assistance.map((a, i)=>
-              <li key={a.objectId} className="accordion-navigation">{a.name}
-                <div className="content active">
-                  <p>{a.content}</p>
-                  {a.location}<br />
-                  {a.event_date}
-                </div>
-
-                </li>
-        )}
-          </ul>
+        <div className="main">
+          <div className="title">{this.props.name}</div>
+          {assistance.map((a) => <Section title={a.name}>
+          <p>{a.content}</p>
+          {a.location}<br />
+          {a.event_date}
+          <hr />
+          </Section>)}
+        </div>
 
       </div>
     );
   }
 
 });
+
 
 export default ViewClient;

@@ -86,3 +86,50 @@ body
    float: right;
    margin-right: 50%;
  }
+
+//assistance toggle//
+// this was copied off of a codepen session found on a google search
+
+.section.open {
+  button {
+    &:before, &:after {
+      height: 14px;
+    }
+    &:before {
+      transform: translate(0%, -50%) rotate(-45deg);
+    }
+    &:after {
+      transform: translate(0%, -50%) rotate(45deg);
+    }
+  }
+  .articlewrap {
+    height: 120px;
+
+  }
+}
+
+.articlewrap {
+  height: 0;
+  overflow: hidden;
+  transition: all .2s ease-in;
+}
+
+.sectionhead {
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+  font-weight: 700;
+  color: #888;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 1em;
+  padding-right: 2.1em;
+  border-bottom: 1px solid black;
+}
+
+.article {
+  padding: 1em;
+  color: #333;
+  line-height: 1.3;
+}
