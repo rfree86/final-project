@@ -16,7 +16,7 @@ const Search = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    let search = this.refs.search.value;
+    let search = (this.refs.search.value).toUpperCase();
     store.searchPeople(search);
   },
 

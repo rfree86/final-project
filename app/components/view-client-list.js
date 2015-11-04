@@ -25,6 +25,11 @@ const ViewClientList = React.createClass({
 
     return (
       <div>
+        <dl className="sub-nav">
+          <dt>Clients</dt>
+            <dd className="active"><Link to="/clients">All</Link></dd>
+            <dd><Link to={"/search"}><i className="fa fa-search"></i></Link>Search</dd>
+        </dl>
         <h1 className="clients">Clients</h1>
         <ul>
           {clients.map((c, i) => {

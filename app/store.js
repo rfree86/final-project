@@ -24,6 +24,7 @@ const Store = _.extend({}, Backbone.Events, {
     this.trigger.bind(this, 'change'));
     this.listenTo(session, 'change', this.trigger.bind(this, 'change'));
     this.listenTo(bulletins, 'add change remove', this.trigger.bind(this, 'change'));
+    this.listenTo(people, 'add change remove', this.trigger.bind(this, 'change'));
   },
 
   getBulletins() {

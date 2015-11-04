@@ -14,8 +14,8 @@ const NewClient = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     var client = store.createClient({
-       first_name: this.refs.first_name.value,
-       last_name: this.refs.last_name.value,
+       first_name: (this.refs.first_name.value).toUpperCase(),
+       last_name: (this.refs.last_name.value).toUpperCase(),
        dob: new Date(this.refs.dob.value),
        phone: this.refs.phone.value,
        gender: this.refs.gender.value,

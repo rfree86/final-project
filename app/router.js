@@ -39,9 +39,9 @@ ReactDOM.render((
 
       <Route path="create" component={Create} onEnter={requireAuth} />
 
-      <Route path="search" component={Search} onEnter={requireAuth} />
-
       <Route path="clients" component={ViewClientList} onEnter={requireAuth} />
+
+      <Route path="search" component={Search} onEnter={requireAuth} />
 
       <Route path="clients/:id" component={ViewClient} onEnter={requireAuth}>
 
