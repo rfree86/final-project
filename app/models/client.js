@@ -1,6 +1,7 @@
 import store from '../store';
 import User from './user';
 import _ from 'underscore';
+import moment from 'moment';
 
 var Client = Backbone.Model.extend({
   idAttribute: 'objectId',
@@ -20,26 +21,24 @@ var Client = Backbone.Model.extend({
   },
 //convert iso to data object that can be rendered on the page
 parse(response) {
-  response.dob = (response.dob && new Date(response.dob.iso));
+  var dob = (response.dob && new Date(response.dob.iso));
+  response.dob = moment(dob).format('YYYY-MM-DD')
   return response
 },
 
   toJSON(options) {
     // I'm saving the model
     if(options) {
+      var dob = new Date(this.get('dob'));
       return _.extend({}, this.attributes, {
         dob: {
           "__type": "Date",
-          "iso": this.get('dob').toISOString()
-
-
+          "iso": dob.toISOString()
         }
       });
     // I'm using toJSON to use with React
     } else {
-      return _.extend({}, this.attributes, {
-        dob: this.get('dob').toJSON()
-      });
+      return _.extend({}, this.attributes, {});
     }
   },
 

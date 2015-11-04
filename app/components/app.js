@@ -60,6 +60,7 @@ var App = React.createClass({
                 <li className="has-dropdown">
                   <a href="#">{username}</a>
                   <ul className="dropdown">
+                    <li><Link to="/user">Your Profile</Link></li>
                     <li><a href="#" onClick={this.handleLogout}>Logout</a></li>
                   </ul>
                 </li>

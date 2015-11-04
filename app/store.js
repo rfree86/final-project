@@ -9,12 +9,14 @@ import User from './models/user';
 import Bulletin from './models/bulletin';
 import BulletinCollection from './models/bulletin-collection';
 import PeopleCollection from './models/people-collection';
+import UsersCollection from './models/users-collection';
 
 let session = new Session();
 let clients = new ClientCollection();
 let assistanceCache = {};
 let bulletins = new BulletinCollection();
 let people = new PeopleCollection();
+let users = new UsersCollection();
 
 
 const Store = _.extend({}, Backbone.Events, {
@@ -25,6 +27,7 @@ const Store = _.extend({}, Backbone.Events, {
     this.listenTo(session, 'change', this.trigger.bind(this, 'change'));
     this.listenTo(bulletins, 'add change remove', this.trigger.bind(this, 'change'));
     this.listenTo(people, 'add change remove', this.trigger.bind(this, 'change'));
+    this.listenTo(users, 'add change remove', this.trigger.bind(this, 'change'));
   },
 
   getBulletins() {
@@ -99,9 +102,24 @@ const Store = _.extend({}, Backbone.Events, {
   createUser(attributes) {
     let user = new User(attributes);
     return user.save().then(()=> {
-      return sessioin.authenticate({sessionToken:
+      return session.authenticate({sessionToken:
 user.get('sessionToken')});
     });
+  },
+
+  saveUser(user, options) {
+    options = _.extend({}, options, {merge: true});
+    return users.create(user, options);
+  },
+
+  getUser(id) {
+    let user = users.get(id);
+    if(user) {
+      return user.toJSON();
+    } else {
+      users.fetch();
+      return {};
+    }
   },
 
   getAssistanceForClient(id) {

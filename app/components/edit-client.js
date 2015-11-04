@@ -1,5 +1,6 @@
 import React from 'react';
 import store from '../store';
+import { Link } from 'react-router';
 import { History } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
 import update from 'react-addons-update';
@@ -56,7 +57,7 @@ const EditClient = React.createClass({
         <legend>Edit Client</legend>
         <input type="text" value={client.first_name} placeholder="First Name" onChange={this.handleChange.bind(this, 'first_name')} />
         <input type="text" value={client.last_name} placeholder="Last Name" onChange={this.handleChange.bind(this, 'last_name')} />
-        <input type="date" value={moment(client.dob).format('YYYY-MM-DD')} placeholder="Date of Birth" onChange={this.handleChange.bind(this, 'dob')} />
+        <input type="date" value={client.dob} placeholder="Date of Birth" onChange={this.handleChange.bind(this, 'dob')} />
         <input type="text" value={client.phone} placeholder="Phone Number" onChange={this.handleChange.bind(this, 'phone')} />
 
           <div className="row">
