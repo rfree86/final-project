@@ -75,6 +75,7 @@ const Store = _.extend({}, Backbone.Events, {
   },
 
   saveClient(client, options) {
+      options = _.extend({}, options, {merge: true});
     return clients.create(client, options);
   },
 

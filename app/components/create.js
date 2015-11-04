@@ -36,10 +36,10 @@ const NewClient = React.createClass({
       <form onSubmit={this.handleSubmit}>
         <fieldset>
         <legend>New Client</legend>
-        <input className="clientInput" type="text" ref="first_name" placeholder="First Name" />
-        <input className="clientInput" type="text" ref="last_name" placeholder="Last Name" />
-        <input className="clientInput" type="date" ref="dob" placeholder="Date of Birth" />
-        <input className="clientInput" type="text" ref="phone" placeholder="Phone Number" />
+        <input type="text" ref="first_name" placeholder="First Name" />
+        <input type="text" ref="last_name" placeholder="Last Name" />
+        <input type="date" ref="dob" placeholder="Date of Birth" />
+        <input type="text" ref="phone" placeholder="Phone Number" />
 
           <div className="row">
             <div className="small-5 columns">

@@ -13,6 +13,7 @@ import ViewClientList from './components/view-client-list';
 import ViewClient from './components/view-client';
 import NewBulletin from './components/bulletin-form';
 import Search from './components/search';
+import EditClient from './components/edit-client';
 
 
 function requireAuth(nextState, replaceState) {
@@ -45,7 +46,9 @@ ReactDOM.render((
 
       <Route path="clients/:id" component={ViewClient} onEnter={requireAuth}>
 
-      <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
+        <Route path="edit_client" component={EditClient} onEnter={requireAuth} />  
+
+        <Route path="assistance" component={NewAssistance} onEnter={requireAuth} />
 
       </Route>
 

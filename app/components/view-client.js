@@ -5,6 +5,9 @@ import { Link } from 'react-router';
 import { History } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
 import NewClient from './create';
+import EditClient from './edit-client';
+import moment from 'moment';
+
 
 
 //this component is for the toggle class functionality of the assistnace list
@@ -95,18 +98,22 @@ const ViewClient = React.createClass({
     let client = this.state.client;
     let assistance = this.state.assistance;
 
+    if(this.state.isEditing) {
+      return <EditClient initialClient={client} onSave={this.handleEdit} />
+    }
+
     return (
       <div>
         <table>
           <thead>
             <tr>
               <th>Information for {client.first_name} {client.middle_initial} {client.last_name}</th>
-              <th></th>
+              <th><Link to={"/clients/" + this.props.params.id + "/edit_client"}>Edit Client</Link></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-        <td>Date of Birth: {client.dob}</td>
+        <td>Date of Birth: {moment(client.dob).format('MMMM Do YYYY')}</td>
         <td>Best Phone Number: {client.phone}</td>
         <td>Gender: {client.gender}</td>
           </tr>
