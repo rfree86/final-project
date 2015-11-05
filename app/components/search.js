@@ -14,6 +14,11 @@ const Search = React.createClass({
     }
   },
 
+  handleCancel(e) {
+    e.preventDefault();
+    this.history.goBack();
+  },
+
   handleSubmit(e) {
     e.preventDefault();
     let search = (this.refs.search.value).toUpperCase();
@@ -26,8 +31,18 @@ const Search = React.createClass({
         <h1>Search Clients</h1>
           <form onSubmit={this.handleSubmit}>
             <input type="search" ref="search" placeholder="search name" />
-            <button type="submit">Submit</button>
+              <div className="button-bar">
+                <ul className="button-group round">
+                  <li><button className="button success tiny" type="submit">Submit</button></li>
+                </ul>
+
+                <ul className="button-group round">
+                  <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
+                </ul>
+              </div>
           </form>
+
+
 
           <ul>
             {this.state.people.map((c) =>{

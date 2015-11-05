@@ -29,23 +29,21 @@ const UserProfile = React.createClass({
      });
    },
 
-   handleName(e) {
+   handleChange(prop, e) {
+     let newState = {};
+     newState[prop] = {
+       $set: e.target.value
+     };
+
      this.setState({
-       user: update(this.state.user, {
-         first_name: {$set: e.target.value},
-         last_name: {$set: e.target.value},
-         email: {$set: e.target.value},
-         password: {$set: e.target.value},
-         orgainization: {$set: e.target.value},
-         phone: {$set: e.target.value},
-       })
+       user: update(this.state.user, newState)
      });
    },
 
    handleSubmit(e) {
      e.preventDefault();
      store.saveUser(this.state.user);
-     this.handleEdit();
+     this.handleEdit(e);
    },
 
   render() {
@@ -65,7 +63,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">First Name</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="text" value={user.first_name} placeholder="First Name" onChange={this.handleName} />
+                      <input type="text" value={user.first_name} placeholder="First Name" onChange={this.handleChange.bind(this, 'first_name')} />
                     </div>
                 </div>
 
@@ -74,7 +72,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Last Name</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="text" value={user.last_name} placeholder="Last Name" onChange={this.handleName} />
+                      <input type="text" value={user.last_name} placeholder="Last Name" onChange={this.handleChange.bind(this, 'last_name')} />
                     </div>
                 </div>
 
@@ -83,7 +81,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Email</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="text" value={user.email} placeholder="email" onChange={this.handleName} />
+                      <input type="text" value={user.email} placeholder="email" onChange={this.handleChange.bind(this, 'email')} />
                     </div>
                 </div>
 
@@ -92,7 +90,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Password</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="password" value={user.password} placeholder="password" onChange={this.handleName} />
+                      <input type="password" value={user.password} placeholder="password" onChange={this.handleChange.bind(this, 'password')} />
                     </div>
                 </div>
 
@@ -101,7 +99,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Organization</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="text" value={user.organization} placeholder="organization" onChange={this.handleName} />
+                      <input type="text" value={user.organization} placeholder="organization" onChange={this.handleChange.bind(this, 'organization')} />
                     </div>
                 </div>
 
@@ -110,7 +108,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Phone</span>
                     </div>
                     <div className="small-10 columns">
-                      <input value={user.phone} placeholder="phone" onChange={this.handleName} />
+                      <input value={user.phone} placeholder="phone" onChange={this.handleChange.bind(this, 'phone')} />
                     </div>
                 </div>
 

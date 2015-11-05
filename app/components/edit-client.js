@@ -46,13 +46,18 @@ const EditClient = React.createClass({
     }
   },
 
+  handleCancel(e) {
+    e.preventDefault();
+    this.history.pushState({}, "/clients/" + this.props.params.id);
+  },
+
   render() {
     let client = this.state.client;
     return (
 
       <div className="row">
         <div className="small-10 columns">
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <fieldset>
         <legend>Edit Client</legend>
         <input type="text" value={client.first_name} placeholder="First Name" onChange={this.handleChange.bind(this, 'first_name')} />
@@ -70,8 +75,8 @@ const EditClient = React.createClass({
 
         <label>Marital Status</label>
         <select name="select" value={client.marital} onChange={this.handleChange.bind(this, 'marital')}>
-          <option>Single</option>
-          <option>Married</option>
+          <option value="single">Single</option>
+          <option value="married">Married</option>
           <option>Divorced</option>
           <option>Seperated</option>
           <option>Widow</option>
@@ -99,10 +104,19 @@ const EditClient = React.createClass({
       </div>
 
           </div>
-
-        <button type="submit">Submit</button>
         </fieldset>
       </form>
+
+      <div className="button-bar">
+        <ul className="button-group round">
+          <li><button className="button success tiny" type="submit" onSubmit={this.handleSubmit}>Submit</button></li>
+        </ul>
+
+        <ul className="button-group round">
+          <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
+        </ul>
+      </div>
+
       </div>
       </div>
     );

@@ -41,15 +41,23 @@ const Login = React.createClass({
 
   render() {
     return (
-    <div className="row">
-     <div className="small-10 columns">
+
+  <div className="login-page">
+    <h1 className="login-title">Helping Hand</h1>
+
+    <div className="row js-login-box">
+     <div className="small-12 columns">
       <form onSubmit={this.handleSubmit}>
-        <fieldset>
+        <fieldset className="login-fieldset">
         <legend>Login</legend>
         <input className="login-input" ref="email" placeholder="email" />
         <input type="password" ref="password" placeholder="password" />
-        <button type="submit">Login</button>
-        <Link to="/signup"> Sign Up</Link>
+          <div className="button-bar">
+            <ul className="button-group round">
+              <li><button className="button success" type="submit">Login</button></li>
+              <li><button className="button secondary "><Link to="/signup"> Sign Up</Link></button></li>
+            </ul>
+          </div>
         {this.state.error && (
           <p>Bad login information</p>
         )}
@@ -57,6 +65,8 @@ const Login = React.createClass({
       </form>
      </div>
     </div>
+  </div>
+
     )
   }
 })

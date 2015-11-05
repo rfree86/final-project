@@ -4,15 +4,44 @@
 @import '~font-awesome/scss/font-awesome.scss';
 @import 'foundation';
 
+
 body
  {
-  background-color: #F3F3F3;
-}
+   background-color: #E3EDF7;
+ }
 
 .top-bar,
  {
   background-color: #666666;
 }
+///
+//login page
+
+.login-page
+ {
+   background-image: url(http://media.bizj.us/view/img/2967461/helping-hands*1200xx6773-3810-0-506.jpg);
+   background-size: cover;
+   height: 700px;
+ }
+
+.login-title
+  {
+    width: 300px;
+    margin-top: -1px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  }
+
+.js-login-box
+ {
+   margin-top: 70px;
+
+ }
+
+
 
 
 //
@@ -58,10 +87,6 @@ body
   list-style: none;
  }
 
- .clientInput {
-   background-color: blue;
- }
-
  //New Client page and input box styling
  ///
 .newClient
@@ -71,21 +96,9 @@ body
 
 //client view page and assistance components
 
-.assistance
- {
-  background-color: #F4EDDB;
-  padding-left: 20px;
-  padding-top: 15px;
-  position: relative;
-  height: 50px;
 
- }
 
-.add_asst
- {
-   float: right;
-   margin-right: 50%;
- }
+
 
 //assistance toggle//
 // this was copied off of a codepen session found on a google search
