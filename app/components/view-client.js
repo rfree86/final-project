@@ -22,7 +22,6 @@ var Section = React.createClass({
   },
 
   handleClick: function(){
-    console.log(this.state.class);
     if(this.state.open) {
       this.setState({
         open: false,
@@ -41,7 +40,7 @@ var Section = React.createClass({
     return (
       <div className={this.state.class}>
 
-        <div className="sectionhead">{this.props.title} <i className="fa fa-caret-down" onClick={this.handleClick}></i>
+        <div className="sectionhead" onClick={this.handleClick}>{this.props.title} {this.props.date} <i className="fa fa-caret-down"></i>
           </div>
         <div className="articlewrap">
           <div className="article">
@@ -98,6 +97,7 @@ const ViewClient = React.createClass({
     let client = this.state.client;
     let assistance = this.state.assistance;
 
+
     if(this.state.isEditing) {
       return <EditClient initialClient={client} onSave={this.handleEdit} />
     }
@@ -113,15 +113,15 @@ const ViewClient = React.createClass({
           </thead>
           <tbody>
             <tr>
-        <td>Date of Birth: {moment(client.dob).format('MMMM Do YYYY')}</td>
-        <td>Best Phone Number: {client.phone}</td>
-        <td>Gender: {client.gender}</td>
+        <td>DATE OF BIRTH: {moment(client.dob).format('MMMM Do YYYY')}</td>
+        <td>BEST PHONE NUMBER: {client.phone}</td>
+        <td>GENDER: {client.gender}</td>
           </tr>
 
           <tr>
-        <td>Marital Status: {client.marital}</td>
-        <td>Education: {client.education}</td>
-        <td>Employment: {client.employement}</td>
+        <td>MARITAL STATUS: {client.marital}</td>
+        <td>EDUCATION: {client.education}</td>
+        <td>EMPLOYEMENT: {client.employement}</td>
          </tr>
         </tbody>
       </table>
@@ -136,7 +136,7 @@ const ViewClient = React.createClass({
 
         <div className="main">
           <div className="title">{this.props.name}</div>
-          {assistance.map((a) => <Section title={a.name}>
+          {assistance.map((a) => <Section title={a.name} date={moment(a.createdAt).format('MM/DD/YY')}>
           <p>{a.content}</p>
           {a.location}<br />
           {a.event_date}

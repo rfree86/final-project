@@ -21,6 +21,7 @@ const NewAssistance = React.createClass({
         location: this.refs.location.value,
         content: this.refs.content.value,
     });
+    this.history.pushState({}, "/clients/" + this.props.params.id);
   },
 
   render () {

@@ -42,7 +42,7 @@ const EditClient = React.createClass({
     if(this.props.onSave) {
       this.props.onSave(client);
     } else {
-      this.history.pushState({}, '/');
+      this.history.pushState({}, "/clients/" + this.props.params.id);
     }
   },
 
