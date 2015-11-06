@@ -3,6 +3,7 @@ import { Link, IndexLink } from 'react-router';
 import store from '../store';
 import { History } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
+import Mailto from 'react-mailto';
 
 
 var Index = React.createClass({
@@ -37,7 +38,7 @@ var Index = React.createClass({
             <p>{b.message}</p>
             <span className="bulletinSpan"><i>Contact</i>: {b.contact_person}<br />
             <i>Best number to reach</i>: {b.contact_phone}<br />
-            <i>Best email</i>: {b.contact_email}</span>
+            <Mailto email= {b.contact_email}> {b.contact_email}</Mailto></span>
             </li>
           )}
         )}
