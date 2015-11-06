@@ -43,13 +43,15 @@ const Login = React.createClass({
     return (
 
   <div className="login-page">
-    <h1 className="login-title">Helping Hand</h1>
+    <div className="login-overlay"></div>
+    <h1 className="login-title">HELPING HAND</h1>
 
     <div className="row js-login-box">
      <div className="small-12 columns">
+
       <form onSubmit={this.handleSubmit}>
-        <fieldset className="login-fieldset">
-        <legend>Login</legend>
+        <fieldset>
+        <legend className="login-legend">LOGIN</legend>
         <input className="login-input" ref="email" placeholder="email" />
         <input type="password" ref="password" placeholder="password" />
           <div className="button-bar">

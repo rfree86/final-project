@@ -30,7 +30,7 @@ var Index = React.createClass({
       <div>
       <h6 className="welcome">Welcome {username}</h6>
       <h1 className="bulletinBoard">Bulletin Board</h1>
-        <ul>
+        <ul className="buttetin-ul">
           {bulletins.map((b)=>{
             return(
             <li className="bulletinLines" key={b.objectId}>{b.title}<hr className="bulletinHR" />

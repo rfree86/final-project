@@ -3,11 +3,14 @@
 @import '~normalize.css/normalize.css';
 @import '~font-awesome/scss/font-awesome.scss';
 @import 'foundation';
-
+$title-color: #999999;
+$body-color: #E3EDF7;
+$text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+$box-shadow: 2px 2px 2px 2px #999999;
 
 body
  {
-   background-color: #E3EDF7;
+   background-color: #97B6CF;
  }
 
 .top-bar,
@@ -21,26 +24,45 @@ body
  {
    background-image: url(http://media.bizj.us/view/img/2967461/helping-hands*1200xx6773-3810-0-506.jpg);
    background-size: cover;
-   height: 700px;
+   height: 761px;
+   z-index: -3;
  }
 
 .login-title
   {
-    width: 300px;
+    position: absolute;
+    font-size: 60px;
+    width: 50%;
     margin-top: -1px;
-    margin-left: auto;
-    margin-right: auto;
     color: white;
     text-align: center;
-    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    text-shadow: $text-shadow;
+    z-index: 3;
   }
 
 .js-login-box
  {
-   margin-top: 70px;
+   position: absolute;
+   top: 800px;
+   margin: 0 auto;
 
  }
 
+.login-overlay
+ {
+   position: absolute;
+   height: 761px;
+   width: 100%;
+   margin: 0 auto;
+   background-color: rgba(102, 102, 102, .2);
+   z-index: 0;
+
+ }
+
+.login-legend
+ {
+   color: white;
+ }
 
 
 
@@ -50,18 +72,30 @@ body
 .welcome
  {
   margin-left: 10px;
+  color: $title-color;
  }
 
 .bulletinBoard
  {
   text-align: center;
+  color: white;
 }
+
+.buttetin-ul
+ {
+   width: 80%;
+   margin: 0 auto;
+
+ }
 
 .bulletinLines
  {
-  background-color: #F4EDDB;
+  background-color: white;
   list-style: none;
   margin-bottom: 15px;
+  padding-left: 15px;
+  border-radius: 2%;
+  box-shadow: $box-shadow
 
  }
 
@@ -81,7 +115,18 @@ body
 .clients
  {
   text-align: center;
+  color: white;
 }
+
+.client-list
+ {
+   background-color: white;
+   padding-top: 10px;
+   padding-left: 5px;
+   width: 80%;
+   margin: 0 auto;
+ }
+
 .clientListView
  {
   list-style: none;
@@ -128,7 +173,8 @@ body
 }
 
 .sectionhead {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   overflow: hidden;
   background: white;
   cursor: pointer;
@@ -139,6 +185,7 @@ body
   padding: 1em;
   padding-right: 2.1em;
   border-bottom: 1px solid black;
+
 }
 
 .article {
@@ -146,3 +193,12 @@ body
   color: #333;
   line-height: 1.3;
 }
+
+///
+//search bar page//
+
+.search-title
+ {
+   color: white;
+
+ }
