@@ -7,6 +7,7 @@ import BackboneMixin from '../mixins/backbone';
 import NewClient from './create';
 import EditClient from './edit-client';
 import moment from 'moment';
+import _ from 'underscore';
 
 
 
@@ -96,6 +97,8 @@ const ViewClient = React.createClass({
 
     let client = this.state.client;
     let assistance = this.state.assistance;
+    assistance = _.sortBy(assistance, 'createdAt').reverse();
+    console.log(assistance);
 
 
     if(this.state.isEditing) {
@@ -103,7 +106,7 @@ const ViewClient = React.createClass({
     }
 
     return (
-      <div>
+      <div className="client-page">
         <table>
           <thead>
             <tr>
@@ -127,9 +130,9 @@ const ViewClient = React.createClass({
       </table>
 
         <dl className="sub-nav">
-          <dt>Assistance</dt>
+          <dt className="sub-nav-asst">Assistance</dt>
             <dd className="active"><Link to={"/clients/" + this.props.params.id}>All</Link></dd>
-            <dd><Link to={"/clients/" + this.props.params.id + "/assistance"}><i className="fa fa-plus-square"></i></Link>Add Assistance</dd>
+            <dd><Link className="sub-nav-asst" to={"/clients/" + this.props.params.id + "/assistance"}><i className="fa fa-plus-square"></i></Link>Add Assistance</dd>
         </dl>
 
         {this.props.children}

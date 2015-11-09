@@ -52,7 +52,7 @@ const UserProfile = React.createClass({
     if(this.state.isEditing) {
 
       return(
-          <div className="row">
+          <div className="row user-profile">
             <div className="small-10 columns">
               <h1>{user.first_name} {user.last_name}</h1>
             <form onSubmit={this.handleSubmit}>
@@ -60,7 +60,7 @@ const UserProfile = React.createClass({
 
                 <div className="row collapse">
                     <div className="small-2 columns">
-                      <span className="prefix">First Name</span>
+                      <span className="prefix js-user-label">First Name</span>
                     </div>
                     <div className="small-10 columns">
                       <input type="text" value={user.first_name} placeholder="First Name" onChange={this.handleChange.bind(this, 'first_name')} />
@@ -81,7 +81,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Email</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="text" value={user.email} placeholder="email" onChange={this.handleChange.bind(this, 'email')} />
+                      <input type="text" value={user.email} placeholder="Email" onChange={this.handleChange.bind(this, 'email')} />
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Password</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="password" value={user.password} placeholder="password" onChange={this.handleChange.bind(this, 'password')} />
+                      <input type="password" value={user.password} placeholder="Password" onChange={this.handleChange.bind(this, 'password')} />
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@ const UserProfile = React.createClass({
                       <span className="prefix">Organization</span>
                     </div>
                     <div className="small-10 columns">
-                      <input type="text" value={user.organization} placeholder="organization" onChange={this.handleChange.bind(this, 'organization')} />
+                      <input type="text" value={user.organization} placeholder="Organization" onChange={this.handleChange.bind(this, 'organization')} />
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@ const UserProfile = React.createClass({
                     </div>
                 </div>
 
-              <button className="button success" onClick={this.handleSubmit}>Update</button>
+              <button className="button success round tiny" onClick={this.handleSubmit}>Update</button>
               </fieldset>
             </form>
             </div>
@@ -120,9 +120,9 @@ const UserProfile = React.createClass({
       );
     } else {
     return (
-        <div className="row">
+        <div className="row user-profile">
           <div className="small-10 columns">
-            <h1>{user.first_name} {user.last_name}</h1>
+            <h1 className="user-title">{user.first_name} {user.last_name}</h1>
           <form onSubmit={this.handleEdit}>
             <fieldset>
 
@@ -152,7 +152,7 @@ const UserProfile = React.createClass({
 
                 </div>
                 <div className="small-10 columns">
-                  <input type="text" value={user.email} placeholder="email" />
+                  <input type="text" value={user.email} placeholder="Email" />
                 </div>
             </div>
 
@@ -162,31 +162,31 @@ const UserProfile = React.createClass({
 
                 </div>
                 <div className="small-10 columns">
-                  <input type="password" value={user.password} placeholder="password" />
+                  <input type="password" value={user.password} placeholder="Password" />
                 </div>
             </div>
 
             <div className="row collapse">
                 <div className="small-2 columns">
-                  <span className="prefix">organization</span>
+                  <span className="prefix">Organization</span>
 
                 </div>
                 <div className="small-10 columns">
-                  <input type="text" value={user.organization} placeholder="organization" />
+                  <input type="text" value={user.organization} placeholder="Organization" />
                 </div>
             </div>
 
             <div className="row collapse">
                 <div className="small-2 columns">
-                  <span className="prefix">Phone Number</span>
+                  <span className="prefix">Phone</span>
 
                 </div>
                 <div className="small-10 columns">
-                  <input value={user.phone} placeholder="phone" />
+                  <input value={user.phone} placeholder="Phone Number" />
                 </div>
             </div>
 
-            <button className="button alert" onClick={this.handleEdit}>Edit</button>
+            <button className="button alert round tiny" onClick={this.handleEdit}>Edit</button>
             </fieldset>
           </form>
           </div>

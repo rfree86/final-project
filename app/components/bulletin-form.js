@@ -27,6 +27,11 @@ const NewBulletin = React.createClass({
    });
  },
 
+ handleCancel(e) {
+   e.preventDefault();
+   this.history.goBack();
+ },
+
  render() {
    return (
     <div className="row">
@@ -39,7 +44,15 @@ const NewBulletin = React.createClass({
        <input type="text" ref="contact_person" placeholder="Best person to contact" />
        <input type="text" ref="contact_phone" placeholder="Best person's phone" />
        <input type="text" ref="contact_email" placeholder="Best person's email" />
-       <button type="submit">Submit</button>
+         <div className="button-bar">
+           <ul className="button-group round">
+             <li><button className="button success tiny" type="submit">Submit</button></li>
+           </ul>
+
+           <ul className="button-group round">
+             <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
+           </ul>
+         </div>
        </fieldset>
      </form>
      </div>

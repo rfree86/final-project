@@ -28,6 +28,7 @@ const Store = _.extend({}, Backbone.Events, {
     this.listenTo(bulletins, 'add change remove', this.trigger.bind(this, 'change'));
     this.listenTo(people, 'add change remove', this.trigger.bind(this, 'change'));
     this.listenTo(users, 'add change remove', this.trigger.bind(this, 'change'));
+
   },
 
   getBulletins() {
@@ -134,7 +135,8 @@ user.get('sessionToken')});
     let assistances = (assistanceCache[id] = assistanceCache[id] || new
     AssistanceCollection(null, {clientId: id}));
     this.stopListening(assistances);
-    this.listenTo(assistances, 'add remove change', this.trigger.bind(this, 'change'));
+    this.listenTo(assistances, 'add remove change sort', this.trigger.bind(this, 'change'));
+    assistances.sort('-createdAt');
     return assistances.fetch();
   },
 

@@ -1,4 +1,5 @@
 import Assistance from './assistance';
+import moment from 'moment';
 
 var AssistanceCollection = Backbone.Collection.extend({
   model: Assistance,
@@ -11,6 +12,11 @@ var AssistanceCollection = Backbone.Collection.extend({
         objectId: this.clientId
       }
     });
+  },
+  comparator: function(m) {
+  var time =  moment(m.get('createdAt')).format('MMMM Do YYYY, h:mm:ss a');
+
+    return time;
   },
 
 initialize(models, options) {

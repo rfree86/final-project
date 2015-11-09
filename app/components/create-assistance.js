@@ -36,7 +36,7 @@ const NewAssistance = React.createClass({
       <input type="text" ref="event_date" placeholder="date" />
       <input type="text" ref="location" placeholder="location" />
       <textarea cols="30" rows="10" ref="content" placeholder="describe event here" />
-      <button type="submit">Submit</button>
+      <button className="button success round tiny" type="submit">Submit</button>
       </fieldset>
     </form>
     </div>

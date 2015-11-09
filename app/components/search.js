@@ -50,9 +50,9 @@ const Search = React.createClass({
 
 
 
-          <ul>
+          <ul className="client-list">
             {this.state.people.map((c) =>{
-              return (<li className="search-results" key={c.objectId}>
+              return (<li className="search-results clientListView" key={c.objectId}>
               <Link  to={`/clients/${c.objectId}`}>{c.last_name}, {c.first_name}, {c.middle_initial}</Link>
               <hr />
             </li>);

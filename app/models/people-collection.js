@@ -12,6 +12,7 @@ var PeopleCollection = Backbone.Collection.extend({
         })
       )
   },
+  comparator: 'last_name',
 
   setSearch(search) {
     this.search = search;
