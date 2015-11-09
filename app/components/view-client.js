@@ -98,7 +98,6 @@ const ViewClient = React.createClass({
     let client = this.state.client;
     let assistance = this.state.assistance;
     assistance = _.sortBy(assistance, 'createdAt').reverse();
-    console.log(assistance);
 
 
     if(this.state.isEditing) {
@@ -143,6 +142,7 @@ const ViewClient = React.createClass({
           <p>{a.content}</p>
           {a.location}<br />
           {a.event_date}
+          <span className="asst-creator"><i>Entered By</i>: {a.creator.first_name} {a.creator.last_name} </span>
 
           </Section>)}
         </div>

@@ -23,8 +23,8 @@ const NewBulletin = React.createClass({
      contact_person: this.refs.contact_person.value,
      contact_phone: this.refs.contact_phone.value,
      contact_email: this.refs.contact_email.value,
-
    });
+   this.history.pushState({}, "/");
  },
 
  handleCancel(e) {

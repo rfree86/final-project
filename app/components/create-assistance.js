@@ -12,6 +12,11 @@ const NewAssistance = React.createClass({
     };
   },
 
+  handleCancel(e) {
+    e.preventDefault();
+    this.history.goBack();
+  },
+
   handleSubmit(e) {
     e.preventDefault();
 
@@ -36,7 +41,17 @@ const NewAssistance = React.createClass({
       <input type="text" ref="event_date" placeholder="date" />
       <input type="text" ref="location" placeholder="location" />
       <textarea cols="30" rows="10" ref="content" placeholder="describe event here" />
-      <button className="button success round tiny" type="submit">Submit</button>
+
+        <div className="button-bar">
+          <ul className="button-group round">
+            <li><button className="button success tiny" type="submit">Submit</button></li>
+          </ul>
+
+          <ul className="button-group round">
+            <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
+          </ul>
+        </div>
+        
       </fieldset>
     </form>
     </div>

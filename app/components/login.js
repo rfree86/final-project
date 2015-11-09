@@ -45,6 +45,10 @@ const Login = React.createClass({
   <div className="login-page">
     <div className="login-overlay"></div>
     <h1 className="login-title">HELPING HAND</h1>
+    <blockquote className="login-quote">
+      There is no better way to thank God for your sight than by giving a helping hand to someone in the dark.<br />
+    -Hellen Keller
+    </blockquote>
 
     <div className="row js-login-box">
      <div className="small-12 columns">

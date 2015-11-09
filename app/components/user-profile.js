@@ -54,13 +54,13 @@ const UserProfile = React.createClass({
       return(
           <div className="row user-profile">
             <div className="small-10 columns">
-              <h1>{user.first_name} {user.last_name}</h1>
+              <h1 className="user-title">{user.first_name} {user.last_name}</h1>
             <form onSubmit={this.handleSubmit}>
               <fieldset>
 
                 <div className="row collapse">
                     <div className="small-2 columns">
-                      <span className="prefix js-user-label">First Name</span>
+                      <span className="prefix">First Name</span>
                     </div>
                     <div className="small-10 columns">
                       <input type="text" value={user.first_name} placeholder="First Name" onChange={this.handleChange.bind(this, 'first_name')} />

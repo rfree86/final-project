@@ -24,9 +24,12 @@ const NewClient = React.createClass({
        employement: this.refs.employement.value,
 
     });
+this.history.pushState({}, "/clients");
+  },
 
-    // theClient = new Client({first_name, last_name, dob, phone, gender, marital, education, employement});
-
+  handleCancel(e) {
+    e.preventDefault();
+    this.history.goBack();
   },
 
   render() {
@@ -51,6 +54,7 @@ const NewClient = React.createClass({
 
         <label>Marital Status</label>
         <select name="select" ref="marital">
+          <option>select</option>
           <option>Single</option>
           <option>Married</option>
           <option>Divorced</option>
@@ -62,6 +66,7 @@ const NewClient = React.createClass({
         <div className="small-5 columns">
         <label>Education</label>
         <select name="select" ref="education">
+          <option>select</option>
           <option>High School</option>
           <option>Associates</option>
           <option>Tech School</option>
@@ -72,6 +77,7 @@ const NewClient = React.createClass({
 
         <label>Employement</label>
         <select name="select" ref="employement">
+          <option>select</option>
           <option>Student</option>
           <option>Unemployed</option>
           <option>Part-Time</option>
@@ -81,7 +87,16 @@ const NewClient = React.createClass({
 
           </div>
 
-        <button type="submit">Submit</button>
+          <div className="button-bar">
+            <ul className="button-group round">
+              <li><button className="button success tiny" type="submit">Submit</button></li>
+            </ul>
+
+            <ul className="button-group round">
+              <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
+            </ul>
+          </div>
+
         </fieldset>
       </form>
       </div>

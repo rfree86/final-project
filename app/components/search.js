@@ -34,6 +34,7 @@ const Search = React.createClass({
             <fieldset className="search-field">
               <legend className="search-title">SEARCH CLIENTS</legend>
             <input type="search" ref="search" placeholder="search name" />
+
               <div className="button-bar">
                 <ul className="button-group round">
                   <li><button className="button success tiny" type="submit">Submit</button></li>
@@ -43,6 +44,7 @@ const Search = React.createClass({
                   <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
                 </ul>
               </div>
+
               </fieldset>
           </form>
         </div>

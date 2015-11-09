@@ -3,15 +3,22 @@
 @import '~normalize.css/normalize.css';
 @import '~font-awesome/scss/font-awesome.scss';
 @import 'foundation';
+
 $title-color: #999999;
 $body-color: #E3EDF7;
 $text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-$box-shadow: 2px 2px 2px 2px #999999;
+$box-shadow: 2px 2px 2px 2px #22252B;
+$box-shadow-light: 1px 1px 1px 1px #22252B;
 
 body
  {
    background-color: #97B6CF;
+   min-width: 600px;
  }
+ button
+  {
+    box-shadow: $box-shadow-light;
+  }
 
 .top-bar,
  {
@@ -48,6 +55,17 @@ body
 
  }
 
+.login-quote
+ {
+  position: absolute;
+  font-size: 17px;
+  z-index: 0;
+  color: white;
+  width: 40%;
+  top: 300px;
+  margin-left: 20px;
+ }
+
 .login-overlay
  {
    position: absolute;
@@ -72,7 +90,7 @@ body
 .welcome
  {
   margin-left: 10px;
-  color: $title-color;
+  color: #22252B;
  }
 
 .bulletinBoard
@@ -94,8 +112,8 @@ body
   list-style: none;
   margin-bottom: 15px;
   padding-left: 15px;
-  border-radius: 2%;
-  box-shadow: $box-shadow
+  border-radius: 5px;
+  box-shadow: $box-shadow;
 
  }
 
@@ -106,8 +124,16 @@ body
 
 .bulletinSpan
  {
-  font-size: 10px;
+  font-size: 11px;
 }
+
+.bulletin-moment
+ {
+  float: right;
+  font-size: 12px;
+  margin-right: 5px;
+  margin-top: 5px;
+ }
 
 //
 //view-client-list display
@@ -118,18 +144,16 @@ body
   color: white;
 }
 
-.client-list
- {
-   background-color: white;
-   padding-top: 10px;
-   padding-left: 5px;
-   width: 80%;
-   margin: 0 auto;
- }
 
 .clientListView
  {
   list-style: none;
+  box-shadow: $box-shadow;
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  padding-top: 10px;
+  padding-left: 5px;
  }
 
  //New Client page and input box styling
@@ -169,7 +193,7 @@ body
     }
   }
   .articlewrap {
-    height: 120px;
+    height: 100%;
 
   }
 }
@@ -181,8 +205,6 @@ body
 }
 
 .sectionhead {
-
-
   overflow: hidden;
   background: white;
   cursor: pointer;
@@ -192,7 +214,8 @@ body
   text-overflow: ellipsis;
   padding: 1em;
   padding-right: 2.1em;
-  border-bottom: 1px solid black;
+  margin-bottom: 7px;
+  box-shadow: $box-shadow;
 
 }
 
@@ -203,6 +226,11 @@ body
   line-height: 1.3;
 }
 
+.asst-creator
+ {
+  float: right;
+  font-size: 12px;
+}
 ///
 //search bar page//
 
@@ -223,7 +251,3 @@ body
     color: white;
     text-align: center;
   }
-.js-user-label
- {
-   font-size: 9px;
- }
