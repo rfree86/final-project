@@ -8,12 +8,13 @@ import moment from 'moment';
 const UserProfile = React.createClass({
   mixins: [History, BackboneMixin],
 
+//set the toggle class for editing to false
   getInitialState() {
     return {
       isEditing: false,
     };
   },
-
+//get the currentUser profile information from parse and render on page
    getModels() {
      var userId = store.getSession().currentUser.objectId;
      return {
@@ -21,14 +22,15 @@ const UserProfile = React.createClass({
      };
    },
 
+//toggle the editing class to true and render the if segment which will allow changes to the user information
    handleEdit(e) {
      e.preventDefault();
-     console.log('edit');
      this.setState({
        isEditing: !this.state.isEditing
      });
    },
-
+   //this code is based off instructors application.  resets the value of the changed information
+   //and creates a new copy of the object in parse using "update".  Any client information changed is saved even if submit is not clicked.
    handleChange(prop, e) {
      let newState = {};
      newState[prop] = {
@@ -39,7 +41,7 @@ const UserProfile = React.createClass({
        user: update(this.state.user, newState)
      });
    },
-
+//save the current information for the user and then toggle editing back to false and render the else segment 
    handleSubmit(e) {
      e.preventDefault();
      store.saveUser(this.state.user);

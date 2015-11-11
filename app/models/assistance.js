@@ -14,13 +14,14 @@ const Assistance = Backbone.Model.extend({
     };
   },
 
-  //get Jake to explain what this means?
+  //leave this information out of the models when they come back from Parse.(parse:True?)
   parse(response) {
     response.creator = new User(_.omit(response.creator, '__type', 'className'), {parse: true});
     response.client = new Client(_.omit(response.client, '__type', 'className'), {parse: true});
     return response;
   },
-
+//this is based off my instructors code from an application.  It saves the currentUser of the creator
+//and the client the model is in reference to.
   toJSON(options) {
     //I'm saving the model
     if(options) {
@@ -44,7 +45,7 @@ const Assistance = Backbone.Model.extend({
       });
     }
   },
-
+//Jake's code
   save() {
     let currentUser = store.getSession().currentUser;
     if(currentUser) {

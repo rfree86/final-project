@@ -11,6 +11,7 @@ const Login = React.createClass({
 
   mixins: [ History ],
 
+//this logic was copied from my instructors applicatoiin
   getInitialState() {
     return {
       error: false
@@ -55,7 +56,7 @@ const Login = React.createClass({
 
       <form onSubmit={this.handleSubmit}>
         <fieldset>
-        <legend className="login-legend">LOGIN</legend>
+        <legend className="legend">LOGIN</legend>
         <input className="login-input" ref="email" placeholder="email" />
         <input type="password" ref="password" placeholder="password" />
           <div className="button-bar">

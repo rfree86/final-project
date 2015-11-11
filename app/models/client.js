@@ -27,7 +27,7 @@ parse(response) {
 },
 
   toJSON(options) {
-    // I'm saving the model
+    // I'm saving the model and converting the DOB string into ISO to Parse can read it
     if(options) {
       var dob = new Date(this.get('dob'));
       return _.extend({}, this.attributes, {

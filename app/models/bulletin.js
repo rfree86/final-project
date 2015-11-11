@@ -11,15 +11,16 @@ const Bulletin = Backbone.Model.extend({
       creator: {toJSON: ()=>{}},
     }
   },
-
+//leave off the omited information when returned from Parse
   parse(response) {
     response.creator = new User(_.omit(response.creator, '__type', 'className'), {parse: true});
     return response;
   },
 
+//save this additional information to the model in Parse.  So we know who created the Bulletin post.
   toJSON(options) {
   if(options) {
-  
+
     return _.extend({}, this.attributes, {
       creator: {
         "__type": "Pointer",

@@ -16,7 +16,7 @@ import Search from './components/search';
 import EditClient from './components/edit-client';
 import UserProfile from './components/user-profile';
 
-
+//reroutes the user to the login page if they are not signed in
 function requireAuth(nextState, replaceState) {
   if( ! store.getSession().isAuthenticated) {
     replaceState({ nextPathname: nextState.location.pathname }, '/login');

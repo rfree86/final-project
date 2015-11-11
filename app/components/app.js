@@ -14,8 +14,10 @@ var App = React.createClass({
 
   mixins: [History, BackboneMixin],
 
+//get the currrent user session
   getModels() {
-    return{ session: store.getSession()
+    return {
+      session: store.getSession()
     }
   },
 
@@ -24,7 +26,7 @@ var App = React.createClass({
     store.invalidateSession();
     },
 
-
+//navigation bar with customized info based on the currentUser info
   render() {
     let session = this.state.session;
     let loggedIn = session.isAuthenticated;
@@ -32,7 +34,7 @@ var App = React.createClass({
     let username = (currentUser && currentUser.email) || 'Me';
     return (
       <div>
-        <nav className="top-bar" data-topbar role="navigation">
+        <nav className="top-bar" data-topbar role="navigation" data-options="mobile_show_parent_link: true">
           <ul className="title-area">
             <li className="name">
               <h1><IndexLink to="/">Home</IndexLink></h1>

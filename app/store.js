@@ -43,10 +43,7 @@ const Store = _.extend({}, Backbone.Events, {
     bulletins.create(data)
   },
 
-  getPeopleCollection(model, search) {
-    return( new PeopleCollection(model, {search: search}))
-  },
-
+//takes the search value from Search.js and calls the peopleCollection
   searchPeople(search) {
     people.setSearch(search);
     people.fetch();
@@ -57,9 +54,9 @@ const Store = _.extend({}, Backbone.Events, {
   },
 
   createClient(attributes) {
-
     return clients.create(attributes);
 },
+
   getClients() {
     return clients.toJSON();
   },
@@ -77,7 +74,7 @@ const Store = _.extend({}, Backbone.Events, {
       return{};
     }
   },
-
+//not sure if I am even using this//
   saveClient(client, options) {
       options = _.extend({}, options, {merge: true});
     return clients.create(client, options);
@@ -123,6 +120,7 @@ user.get('sessionToken')});
     }
   },
 
+//This was copied from my Instructor's code from his application
   getAssistanceForClient(id) {
     let assistances = (assistanceCache[id] = assistanceCache[id] || new
     AssistanceCollection(null, {clientId: id}));
@@ -139,7 +137,7 @@ user.get('sessionToken')});
     assistances.sort('-createdAt');
     return assistances.fetch();
   },
-
+//creates a new model of assistance on Parse with the required attributes
   assistanceOnClient(id, assistance) {
     let assistances = (assistanceCache[id] = assistanceCache[id] || new
     AssistanceCollection(null, {clientId: id}));

@@ -15,10 +15,15 @@ body
    background-color: #97B6CF;
    min-width: 600px;
  }
- button
+button
   {
     box-shadow: $box-shadow-light;
   }
+
+fieldset
+ {
+   background-color: #999999;
+ }
 
 .top-bar,
  {
@@ -77,9 +82,10 @@ body
 
  }
 
-.login-legend
+.legend
  {
    color: white;
+   font-size: 20px;
  }
 
 
@@ -114,8 +120,13 @@ body
   padding-left: 15px;
   border-radius: 5px;
   box-shadow: $box-shadow;
-
  }
+
+.bulletin-title
+ {
+   font-weight: bold;
+ }
+
 
 .bulletinHR{
   margin-bottom: 5px;

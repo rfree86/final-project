@@ -9,11 +9,11 @@ import { History } from 'react-router';
 const ViewClientList = React.createClass({
   mixins: [History, BackboneMixin],
 
-
+//get the client collection from the store
   componentWillMount() {
     store.fetchClients();
   },
-
+//get the client class array from parse
   getModels() {
     return {
       clients: store.getClients()

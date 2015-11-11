@@ -3,6 +3,10 @@ import Backbone from 'backbone';
 import User from './user';
 import store from '../store';
 
+
+//This Code was copied from my instructors code on his applicatioin.
+//it compares the info submited by the user with the existing objects in the USER class on Parse
+//if true it will set a session token and allow autherization whereever it is required in the application.
 const Session = Backbone.Model.extend({
   authenticate(options) {
       if (options.username && options.password) {
@@ -42,7 +46,7 @@ const Session = Backbone.Model.extend({
         });
       }
     },
-
+//allows the user to logout of the session.
     invalidate() {
       localStorage.removeItem('parse-session-token');
       window.location.reload();

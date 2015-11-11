@@ -7,7 +7,7 @@ import { History } from 'react-router';
 const Search = React.createClass({
 
   mixins: [History, BackboneMixin],
-
+//get people info from client class in parse.
   getModels() {
     return {
       people: store.getPeople()
@@ -18,7 +18,7 @@ const Search = React.createClass({
     e.preventDefault();
     this.history.goBack();
   },
-
+//set the value of search and plug it into the peopleCollection url for client class
   handleSubmit(e) {
     e.preventDefault();
     let search = (this.refs.search.value).toUpperCase();

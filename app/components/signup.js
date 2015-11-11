@@ -40,20 +40,35 @@ const Signup = React.createClass({
     });
   },
 
+  handleCancel(e) {
+    e.preventDefault();
+    this.history.pushState({}, "/clients/" + this.props.params.id);
+  },
+
   render() {
     return (
     <div className="row">
       <div className="small-10 columns">
       <form onSubmit={this.handleSubmit}>
         <fieldset>
-        <legend>Sign Up</legend>
+        <legend className="legend">Sign Up</legend>
         <input type="text" ref="email" placeholder="email" />
         <input type="text" ref="password" placeholder="password" />
         <input type="text" ref="organization" placeholder="organization" />
         <input type="text" ref="first_name" placeholder="First Name" />
         <input type="text" ref="last_name" placeholder="Last Name" />
         <input ref="phone" placeholder="phone" />
-        <button type="submit">Sign Up</button>
+
+          <div className="button-bar">
+            <ul className="button-group round">
+              <li><button className="button success tiny" type="submit">Submit</button></li>
+            </ul>
+
+            <ul className="button-group round">
+              <li><button className="button alert tiny" onClick={this.handleCancel}>Cancel</button></li>
+            </ul>
+          </div>
+
         {this.state.error && (
           <p>{this.state.error}</p>
         )}

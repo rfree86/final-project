@@ -6,11 +6,14 @@ import { History } from 'react-router';
 const NewClient = React.createClass({
   mixins: [ History ],
 
+//set the initial state of the new client to an empty object
   getInitialState(){
     return {
       client: {}
     };
   },
+
+  //set the value for each attribute and then reroute the screen to the client list page
   handleSubmit(e) {
     e.preventDefault();
     var client = store.createClient({
@@ -38,7 +41,7 @@ this.history.pushState({}, "/clients");
         <div className="small-10 columns">
       <form onSubmit={this.handleSubmit}>
         <fieldset>
-        <legend>New Client</legend>
+        <legend className="legend">New Client</legend>
         <input type="text" ref="first_name" placeholder="First Name" />
         <input type="text" ref="last_name" placeholder="Last Name" />
         <input type="date" ref="dob" placeholder="Date of Birth" />

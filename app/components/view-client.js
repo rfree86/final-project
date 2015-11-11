@@ -62,6 +62,7 @@ const ViewClient = React.createClass({
 
   mixins: [History, BackboneMixin],
 
+//toggle state for render
   getInitialState() {
     return {
       isEditing: false,
@@ -72,19 +73,20 @@ const ViewClient = React.createClass({
     store.fetchAssistanceForClient(this.props.params.id);
   },
 
+//get the specific ID from the client class and get the assistance class's ID with the client as the pointer in Parse
   getModels() {
     return {
       client: store.getClient(this.props.params.id),
       assistance: store.getAssistanceForClient(this.props.params.id)
     };
   },
-
+//on click toggle the editing class in render
   handleEdit() {
     this.setState({
       isEditing: !this.state.isEditing
     });
   },
-
+//this saves the new assistance with the clients objectId as its pointer
   handleAssistance(e) {
     e.preventDefault();
     store.assistanceOnClient(this.props.params.id,
@@ -93,6 +95,7 @@ const ViewClient = React.createClass({
   },
 
 //I am bringing in the Secion component here as a wrapper for the assistance list and inculded css styling
+//assistance(var) resorted the assistance collection to display newest to oldest based off the createdAt attribute
   render() {
 
     let client = this.state.client;
@@ -142,7 +145,8 @@ const ViewClient = React.createClass({
           <p>{a.content}</p>
           {a.location}<br />
           {a.event_date}
-          <span className="asst-creator"><i>Entered By</i>: {a.creator.first_name} {a.creator.last_name} </span>
+          <span className="asst-creator"><i>Entered By</i>: {a.creator.first_name} {a.creator.last_name} </span><br />
+          <span className="asst-creator"><i>Organization</i>: {a.creator.organization}</span>
 
           </Section>)}
         </div>

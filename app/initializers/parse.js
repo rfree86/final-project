@@ -1,5 +1,5 @@
 import $ from 'jquery';
-
+//set up the session with parse after logging in.
 $.ajaxSetup({
   beforeSend(xhr, options) {
     if(options.url.match(/api.parse.com/)) {
