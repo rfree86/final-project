@@ -20,7 +20,7 @@ const BackboneMixin = _.extend({}, Backbone.Events, {
     });
   },
 
-  componetWillUnmount() {
+  componentWillUnmount() {
     this.stopListening();
   }
 

@@ -28,15 +28,8 @@ const Login = React.createClass({
       if (!loggedIn)
       return this.setState({ error: true})
 
-
-
-      var { location } = this.props
-
-      if (location.state && location.state.nextPathname) {
-        this.history.replaceState(null, location.state.nextPathname)
-      } else {
         this.history.replaceState(null, '/')
-      }
+
     })
   },
 
