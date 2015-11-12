@@ -78,7 +78,7 @@ this.history.pushState({}, "/clients");
           <option>Doctorate</option>
         </select>
 
-        <label>Employement</label>
+        <label>Employment</label>
         <select name="select" ref="employement">
           <option>select</option>
           <option>Student</option>

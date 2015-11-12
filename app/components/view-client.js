@@ -126,7 +126,7 @@ const ViewClient = React.createClass({
           <tr>
         <td>MARITAL STATUS: {client.marital}</td>
         <td>EDUCATION: {client.education}</td>
-        <td>EMPLOYEMENT: {client.employement}</td>
+        <td>EMPLOYMENT: {client.employement}</td>
          </tr>
         </tbody>
       </table>

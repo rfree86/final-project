@@ -97,7 +97,7 @@ console.log('submit');
           <option value="doctorate">Doctorate</option>
         </select>
 
-        <label>Employement</label>
+        <label>Employment</label>
         <select name="select" value={client.employement} onChange={this.handleChange.bind(this, 'employement')}>
           <option value="student">Student</option>
           <option value="unemployed">Unemployed</option>
