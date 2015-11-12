@@ -53,7 +53,7 @@ const Signup = React.createClass({
         <fieldset>
         <legend className="legend">Sign Up</legend>
         <input type="text" ref="email" placeholder="email" />
-        <input type="text" ref="password" placeholder="password" />
+        <input type="password" ref="password" placeholder="password" />
         <input type="text" ref="organization" placeholder="organization" />
         <input type="text" ref="first_name" placeholder="First Name" />
         <input type="text" ref="last_name" placeholder="Last Name" />
