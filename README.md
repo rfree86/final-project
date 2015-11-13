@@ -1,60 +1,14 @@
-# react-webpack-scaffolding
+PROJECT TITLE- HELPING HAND
 
-## How to get started
+APP PURPOSE: To provide non-profit organizations a way to communicate and share inforamtion about who they are helping.
 
-1. Start your own project folder with a git clone then git init
+TECHNOLOGY USED: HTML5, CSS3, Foundations, Javascript, JQUERY, Backbone.JS, React
 
-    ```sh
-    cd ~/Code/
-    hub clone jacobthemyth/react-webpack-scaffolding NEWPROJECT
-    cd NEWPROJECT
-    rm -rf .git
-    git init
-    git add .
-    git commit -m "Initial commit"
-    ```
+some of the code was based off my instructor code used in this application: https://github.com/TIY-GVL-FEE-2015-August/9.5-relational-data.git
 
-2. Install prerequisites
 
-    ```sh
-    npm install
-    ```
 
-3. Start watching for changes and develop it!
 
-    ```sh
-    gulp
-    ```
-
-## Usage
-
-### Images
-
-Images should be placed in `public/assets/images`
-
-#### In JS / JSX
-
-```jsx
-import mountains from 'assets/images/mountains.jpeg';
-
-var Thing = React.createClass({
-  render() {
-    return (
-      <img src={mountains} alt="Mountains" />
-    );
-  }
-});
-```
-
-#### In SCSS
-
-URLs are relative to `app.scss`
-
-```scss
-body {
-  background-image: url('../../public/assets/images/mountains.jpeg');
-}
-```
 
 ## License
 
